@@ -1,3 +1,10 @@
 
 benchmarks/build/*
 benchmarks/deps/*
+benchmarks/src/dacapo/parser/ConfigFile.java
+benchmarks/src/dacapo/parser/ConfigFileConstants.java
+benchmarks/src/dacapo/parser/ConfigFileTokenManager.java
+benchmarks/src/dacapo/parser/ParseException.java
+benchmarks/src/dacapo/parser/SimpleCharStream.java
+benchmarks/src/dacapo/parser/Token.java
+benchmarks/src/dacapo/parser/TokenMgrError.java
