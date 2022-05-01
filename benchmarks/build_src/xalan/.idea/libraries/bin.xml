@@ -1,0 +1,19 @@
+<component name="libraryTable">
+  <library name="bin">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/xalan-j_2_4_1/bin/JLex.jar!/" />
+      <root url="jar://$PROJECT_DIR$/xalan-j_2_4_1/bin/regexp.jar!/" />
+      <root url="jar://$PROJECT_DIR$/xalan-j_2_4_1/bin/xml-apis.jar!/" />
+      <root url="jar://$PROJECT_DIR$/xalan-j_2_4_1/bin/xercesImpl.jar!/" />
+      <root url="jar://$PROJECT_DIR$/xalan-j_2_4_1/bin/bsf.jar!/" />
+      <root url="jar://$PROJECT_DIR$/xalan-j_2_4_1/bin/stylebook-1.0-b3_xalan-2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/xalan-j_2_4_1/bin/BCEL.jar!/" />
+      <root url="jar://$PROJECT_DIR$/xalan-j_2_4_1/bin/ant.jar!/" />
+      <root url="jar://$PROJECT_DIR$/xalan-j_2_4_1/bin/java_cup.jar!/" />
+      <root url="jar://$PROJECT_DIR$/xalan-j_2_4_1/bin/xalan2jdoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/xalan-j_2_4_1/bin/runtime.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

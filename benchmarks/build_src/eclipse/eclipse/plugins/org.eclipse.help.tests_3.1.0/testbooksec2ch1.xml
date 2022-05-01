@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+
+<toc label="Topics for Chapter 1" link_to="broken link_to" > 
+	<topic label="Chapter 1 Topic1 " href="ch1/t1.html"/> 
+	<topic label="Chapter 1 Topic2 " href="ch1/t2.html"/> 
+</toc>

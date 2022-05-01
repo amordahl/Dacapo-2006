@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+
+<toc label="Topics for Section 2" link_to="testbook.xml#sec2" > 
+	<topic label="Section 2 Topic" href="sec2.html">
+		<link toc="testbooksec2ch1.xml" />
+		<link toc="testbooksec2ch2.xml" />
+	</topic>
+</toc>

@@ -1,0 +1,617 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>PMD - 3.7</title>
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../style.css" TITLE="Style">
+</head>
+<body>
+<TABLE cellspacing="0" cellpadding="2"><TBODY>
+    <!-- / home/ tom/ pmd/ pmd/ src/ net/ sourceforge/ pmd/ util/ StringUtil.java -->
+  <TR>
+    <TD colspan="6" class="reportHeader">
+    <TABLE width="100%"><TR>
+    <TD valign="top" class="titleText">Clover coverage report -   PMD - 3.7 <DIV class="timestamp"><b>Coverage timestamp:</b>&nbsp;Wed May 31 2006 09:25:59 EDT</DIV>
+            <DIV class="navBar"><a href="../../../../pkgs-summary.html"><b>Overview</b></a>&nbsp;&nbsp;&nbsp;<a href="pkg-summary.html"><b>Package</b></a>&nbsp;&nbsp;&nbsp;<font class="navBarCurrent">File</font></DIV>
+    
+<DIV class="navBarLink">
+&nbsp;&nbsp;&nbsp;
+    <A HREF="../../../../index.html" TARGET="_top">FRAMES</A>&nbsp;&nbsp;
+<A HREF="StringUtil.html" TARGET="_top">NO FRAMES</A>&nbsp;&nbsp;
+    </DIV>
+
+</TD>
+         <td class="headerStats" valign="top" width="40%" align="right">
+        <table align="right">
+         <tr>
+           <td nowrap><b>file stats:</b></td>
+           <td align="right"><b>LOC:</b></td>
+           <td align="right">119</td>
+           <td width="10%">&nbsp;</td>
+           <td align="right"><b>Methods:</b></td>
+           <td align="right">4</td>
+         </tr>
+         <tr>
+           <td></td>
+           <td align="right"><b>NCLOC:</b></td>
+           <td align="right">73</td>
+           <td width="10%">&nbsp;</td>
+           <td align="right"><b>Classes:</b></td>
+           <td align="right">1</td>
+         </tr>
+      </table>
+     </td>
+    </TR></TABLE>
+   </TD>
+  </TR>
+
+<TR><TD class="hbreak" colspan="6">&nbsp;</TD></TR>
+  <TR>
+    <TD class="graphHeaderLeft"><b>&nbsp;Source file</b></TD>
+    <TD class="graphHeader">Conditionals</TD>
+    <TD class="graphHeader">Statements</TD>
+    <TD class="graphHeader">Methods</TD>
+    <TD class="graphHeader" align="left" colspan="2"><B>TOTAL</B></TD>
+  </TR>   
+  <TR>
+    <TD class="graphItem">
+        	   StringUtil.java
+	    </TD>
+   
+    <TD class="graphPercent" align="center">61.5%</TD>
+    <TD class="graphPercent" align="center">79.2%</TD>
+    <TD class="graphPercent" align="center">100%</TD>
+    <TD class="graphBarLeft" align="center"><B>74.4%</B></TD>
+    <TD class="graphBar">
+            <TABLE class="barGraph" cellspacing="0">
+        <TBODY>
+          <TR>
+	               <TD class="covered"><img alt="coverage" src="../../../../img/trans.gif"
+                   width="148" height="12"></TD>
+            <TD class="uncovered"><img alt="coverage" src="../../../../img/trans.gif"
+                   width="52" height="12"></TD>
+	   	  </TR>
+	</TBODY>
+      </TABLE>
+          </TD>
+  </TR> 
+</TBODY></TABLE><TABLE cellspacing="0" cellpadding="0" class="srcView"><TBODY>
+<TR><TD align="right" class="lineCount">
+&nbsp;1</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment">/**</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;2</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment"> * BSD-style license; for more info see http://pmd.sourceforge.net/license.html</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;3</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment"> */</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;4</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="keyword">package</span> net.sourceforge.pmd.util;</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;5</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+<A name="StringUtil">&nbsp;6</A></TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="keyword">public</span> <span class="keyword">class</span> StringUtil {</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;7</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;8</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">    <span class="keyword">private</span> <span class="keyword">static</span> final String[] ENTITIES;</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;9</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;10</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">    <span class="keyword">static</span> {</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;11</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 11: statement executed 3 times.">&nbsp;3</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 11: statement executed 3 times.">        ENTITIES = <span class="keyword">new</span> String[256 - 126];</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;12</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 12: statement executed 3 times.">&nbsp;3</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 12: statement executed 3 times.">        <span class="keyword">for</span> (<span class="keyword">int</span> i = 126; i &lt;= 255; i++) {</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;13</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 13: statement executed 390 times.">&nbsp;390</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 13: statement executed 390 times.">            ENTITIES[i - 126] = <span class="string">"&amp;#"</span> + i + ';';</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;14</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">        }</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;15</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">    }</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;16</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"></SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;17</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 17: method entered 3 times.">&nbsp;3</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 17: method entered 3 times.">    <span class="keyword">public</span> <span class="keyword">static</span> String replaceString(String d, <span class="keyword">char</span> oldChar, String newString) {</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;18</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 18: statement executed 3 times.">&nbsp;3</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 18: statement executed 3 times.">        String fixedNew = newString;</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;19</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 19: statement executed 3 times.">&nbsp;3</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 19: statement executed 3 times.">        <span class="keyword">if</span> (fixedNew == <span class="keyword">null</span>) {</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;20</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 20: statement executed 1 time.">&nbsp;1</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 20: statement executed 1 time.">            fixedNew = <span class="string">""</span>;</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;21</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">        }</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;22</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 22: statement executed 3 times.">&nbsp;3</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 22: statement executed 3 times.">        StringBuffer desc = <span class="keyword">new</span> StringBuffer();</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;23</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 23: statement executed 3 times.">&nbsp;3</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 23: statement executed 3 times.">        <span class="keyword">int</span> index = d.indexOf(oldChar);</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;24</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 24: statement executed 3 times.">&nbsp;3</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 24: statement executed 3 times.">        <span class="keyword">int</span> last = 0;</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;25</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 25: statement executed 3 times.">&nbsp;3</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 25: statement executed 3 times.">        <span class="keyword">while</span> (index != -1) {</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;26</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 26: statement executed 6 times.">&nbsp;6</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 26: statement executed 6 times.">            desc.append(d.substring(last, index));</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;27</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 27: statement executed 6 times.">&nbsp;6</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 27: statement executed 6 times.">            desc.append(fixedNew);</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;28</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 28: statement executed 6 times.">&nbsp;6</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 28: statement executed 6 times.">            last = index + 1;</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;29</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 29: statement executed 6 times.">&nbsp;6</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 29: statement executed 6 times.">            index = d.indexOf(oldChar, last);</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;30</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">        }</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;31</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 31: statement executed 3 times.">&nbsp;3</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 31: statement executed 3 times.">        desc.append(d.substring(last));</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;32</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 32: statement executed 3 times.">&nbsp;3</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 32: statement executed 3 times.">        <span class="keyword">return</span> desc.toString();</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;33</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">    }</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;34</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"></SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;35</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 35: method entered 5 times.">&nbsp;5</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 35: method entered 5 times.">    <span class="keyword">public</span> <span class="keyword">static</span> String replaceString(String inputString, String oldString, String newString) {</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;36</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 36: statement executed 5 times.">&nbsp;5</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 36: statement executed 5 times.">        String fixedNew = newString;</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;37</TD>
+<TD align="right" class="coverageCountHilight">
+<A title="Line 37: expression evaluated to true 0 times, false 5 times.">&nbsp;5</A>
+</TD><TD class="srcCell"><SPAN class="srcLineHilight"><A title="Line 37: expression evaluated to true 0 times, false 5 times.">        <span class="keyword">if</span> (fixedNew == <span class="keyword">null</span>) {</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;38</TD>
+<TD align="right" class="coverageCountHilight">
+<A title="Line 38: statement not executed.">&nbsp;0</A>
+</TD><TD class="srcCell"><SPAN class="srcLineHilight"><A title="Line 38: statement not executed.">            fixedNew = <span class="string">""</span>;</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;39</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">        }</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;40</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 40: statement executed 5 times.">&nbsp;5</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 40: statement executed 5 times.">        StringBuffer desc = <span class="keyword">new</span> StringBuffer();</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;41</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 41: statement executed 5 times.">&nbsp;5</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 41: statement executed 5 times.">        <span class="keyword">int</span> index = inputString.indexOf(oldString);</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;42</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 42: statement executed 5 times.">&nbsp;5</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 42: statement executed 5 times.">        <span class="keyword">int</span> last = 0;</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;43</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 43: statement executed 5 times.">&nbsp;5</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 43: statement executed 5 times.">        <span class="keyword">while</span> (index != -1) {</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;44</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 44: statement executed 1 time.">&nbsp;1</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 44: statement executed 1 time.">            desc.append(inputString.substring(last, index));</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;45</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 45: statement executed 1 time.">&nbsp;1</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 45: statement executed 1 time.">            desc.append(fixedNew);</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;46</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 46: statement executed 1 time.">&nbsp;1</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 46: statement executed 1 time.">            last = index + oldString.length();</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;47</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 47: statement executed 1 time.">&nbsp;1</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 47: statement executed 1 time.">            index = inputString.indexOf(oldString, last);</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;48</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">        }</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;49</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 49: statement executed 5 times.">&nbsp;5</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 49: statement executed 5 times.">        desc.append(inputString.substring(last));</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;50</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 50: statement executed 5 times.">&nbsp;5</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 50: statement executed 5 times.">        <span class="keyword">return</span> desc.toString();</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;51</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">    }</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;52</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;53</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">    <span class="comment">/**</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;54</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment">     * Appends to a StringBuffer the String src where non-ASCII and</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;55</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment">     * XML special chars are escaped.</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;56</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment">     *</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;57</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment">     * <span class="javadoc">@param</span> buf The destination XML stream</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;58</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment">     * <span class="javadoc">@param</span> src The String to append to the stream</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;59</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment">     */</span></SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;60</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 60: method entered 21 times.">&nbsp;21</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 60: method entered 21 times.">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> appendXmlEscaped(StringBuffer buf, String src) {</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;61</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 61: statement executed 21 times.">&nbsp;21</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 61: statement executed 21 times.">        appendXmlEscaped(buf, src, System.getProperty(<span class="string">"net.sourceforge.pmd.supportUTF8"</span>, <span class="string">"no"</span>).equals(<span class="string">"yes"</span>));</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;62</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">    }</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;63</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"></SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;64</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 64: method entered 21 times.">&nbsp;21</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 64: method entered 21 times.">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> appendXmlEscaped(StringBuffer buf, String src, <span class="keyword">boolean</span> supportUTF8) {</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;65</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 65: statement executed 21 times.">&nbsp;21</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 65: statement executed 21 times.">        <span class="keyword">char</span> c;</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;66</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 66: statement executed 21 times.">&nbsp;21</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 66: statement executed 21 times.">        <span class="keyword">for</span> (<span class="keyword">int</span> i = 0; i &lt; src.length(); i++) {</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;67</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 67: statement executed 103 times.">&nbsp;103</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 67: statement executed 103 times.">            c = src.charAt(i);</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;68</TD>
+<TD align="right" class="coverageCountHilight">
+<A title="Line 68: expression evaluated to true 0 times, false 103 times.">&nbsp;103</A>
+</TD><TD class="srcCell"><SPAN class="srcLineHilight"><A title="Line 68: expression evaluated to true 0 times, false 103 times.">            <span class="keyword">if</span> (c &gt; '~') {<span class="comment">// 126</span></A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;69</TD>
+<TD align="right" class="coverageCountHilight">
+<A title="Line 69: statement not executed.">&nbsp;0</A>
+</TD><TD class="srcCell"><SPAN class="srcLineHilight"><A title="Line 69: statement not executed.">                <span class="keyword">if</span> (!supportUTF8) {</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;70</TD>
+<TD align="right" class="coverageCountHilight">
+<A title="Line 70: statement not executed.">&nbsp;0</A>
+</TD><TD class="srcCell"><SPAN class="srcLineHilight"><A title="Line 70: statement not executed.">                    <span class="keyword">if</span> (c &lt;= 255) {</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;71</TD>
+<TD align="right" class="coverageCountHilight">
+<A title="Line 71: statement not executed.">&nbsp;0</A>
+</TD><TD class="srcCell"><SPAN class="srcLineHilight"><A title="Line 71: statement not executed.">                        buf.append(ENTITIES[c - 126]);</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;72</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">                    } <span class="keyword">else</span> {</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;73</TD>
+<TD align="right" class="coverageCountHilight">
+<A title="Line 73: statement not executed.">&nbsp;0</A>
+</TD><TD class="srcCell"><SPAN class="srcLineHilight"><A title="Line 73: statement not executed.">                        buf.append(<span class="string">"&amp;u"</span>).append(Integer.toHexString(c)).append(';');</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;74</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">                    }</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;75</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">                } <span class="keyword">else</span> {</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;76</TD>
+<TD align="right" class="coverageCountHilight">
+<A title="Line 76: statement not executed.">&nbsp;0</A>
+</TD><TD class="srcCell"><SPAN class="srcLineHilight"><A title="Line 76: statement not executed.">                    buf.append(c);</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;77</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">                }</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;78</TD>
+<TD align="right" class="coverageCountHilight">
+<A title="Line 78: expression evaluated to true 0 times, false 103 times.">&nbsp;103</A>
+</TD><TD class="srcCell"><SPAN class="srcLineHilight"><A title="Line 78: expression evaluated to true 0 times, false 103 times.">            } <span class="keyword">else</span> <span class="keyword">if</span> (c == '&amp;')</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;79</TD>
+<TD align="right" class="coverageCountHilight">
+<A title="Line 79: statement not executed.">&nbsp;0</A>
+</TD><TD class="srcCell"><SPAN class="srcLineHilight"><A title="Line 79: statement not executed.">                buf.append(<span class="string">"&amp;amp;"</span>);</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;80</TD>
+<TD align="right" class="coverageCountHilight">
+<A title="Line 80: expression evaluated to true 0 times, false 103 times.">&nbsp;103</A>
+</TD><TD class="srcCell"><SPAN class="srcLineHilight"><A title="Line 80: expression evaluated to true 0 times, false 103 times.">            <span class="keyword">else</span> <span class="keyword">if</span> (c == '<span class="string">"')</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;81</TD>
+<TD align="right" class="coverageCountHilight">
+<A title="Line 81: statement not executed.">&nbsp;0</A>
+</TD><TD class="srcCell"><SPAN class="srcLineHilight"><A title="Line 81: statement not executed.">                buf.append(<span class="string">"&amp;quot;"</span>);</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;82</TD>
+<TD align="right" class="coverageCountHilight">
+<A title="Line 82: expression evaluated to true 0 times, false 103 times.">&nbsp;103</A>
+</TD><TD class="srcCell"><SPAN class="srcLineHilight"><A title="Line 82: expression evaluated to true 0 times, false 103 times.">            <span class="keyword">else</span> <span class="keyword">if</span> (c == '&lt;')</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;83</TD>
+<TD align="right" class="coverageCountHilight">
+<A title="Line 83: statement not executed.">&nbsp;0</A>
+</TD><TD class="srcCell"><SPAN class="srcLineHilight"><A title="Line 83: statement not executed.">                buf.append(<span class="string">"&amp;lt;"</span>);</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;84</TD>
+<TD align="right" class="coverageCountHilight">
+<A title="Line 84: expression evaluated to true 0 times, false 103 times.">&nbsp;103</A>
+</TD><TD class="srcCell"><SPAN class="srcLineHilight"><A title="Line 84: expression evaluated to true 0 times, false 103 times.">            <span class="keyword">else</span> <span class="keyword">if</span> (c == '&gt;')</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;85</TD>
+<TD align="right" class="coverageCountHilight">
+<A title="Line 85: statement not executed.">&nbsp;0</A>
+</TD><TD class="srcCell"><SPAN class="srcLineHilight"><A title="Line 85: statement not executed.">                buf.append(<span class="string">"&amp;gt;"</span>);</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;86</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">            <span class="keyword">else</span></SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;87</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 87: statement executed 103 times.">&nbsp;103</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 87: statement executed 103 times.">                buf.append(c);</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;88</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">        }</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;89</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">    }</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;90</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;91</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment">/*    public static void appendXmlEscaped2(StringBuffer buf, String src) {</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;92</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment">        int l = src.length();</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;93</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment">        char c;</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;94</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment">        for (int i = 0; i &lt; l; i++) {</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;95</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment">            c = src.charAt(i);</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;96</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment">            if (c &lt;= 32) {</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;97</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment">                buf.append(c);</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;98</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment">            } else if (c &gt; '~') {// 126</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;99</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment">                if (c &lt;= 255)</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;100</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment">                    buf.append(ENTITIES[c - 126]);</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;101</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment">                else</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;102</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment"></span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;103</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment">                    buf.append("&amp;u").append(Integer.toHexString(c)).append(';');</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;104</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment">            } else if (c == 38)</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;105</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment">                buf.append("&amp;amp;");</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;106</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment">            else if (c == 34)</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;107</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment">                buf.append("&amp;quot;");</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;108</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment">            else if (c == 39)</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;109</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment">                buf.append("&amp;apos;");</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;110</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment">            else if (c == 60)</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;111</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment">                buf.append("&amp;lt;");</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;112</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment">            else if (c == 62)</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;113</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment">                buf.append("&amp;gt;");</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;114</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment">            else</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;115</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment">                buf.append(c);</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;116</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment">        }</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;117</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment">    }</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;118</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment">*/</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;119</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">}</SPAN></TD></TR></TBODY></TABLE>
+<TABLE width="100%"><TR><TD class="hbreak" colspan="6">&nbsp;</TD></TR>
+<TR><TD class="footer" colspan="6">
+<table>
+<tr>
+ <td><a target="_new" href="http://www.cenqua.com/clover?6HR"><img alt="Clover" src="../../../../img/logo.gif" border="0"></a></td><td nowrap><i>Report generated by </i><a target="_new" href="http://www.cenqua.com/clover?6HR">Clover Code Coverage v1.3.6</a><i><BR>Wed May 31 2006 09:26:49 EDT</i>.</td>
+<td>&nbsp;</td><td style="BORDER-LEFT: #9c9c9c 1px solid;">&nbsp;</td><td>Open Source License registered to the PMD Project. This license of Clover is provided to support the development of PMD only. </td>
+</tr>
+</table>
+</td>
+</tr></TABLE>

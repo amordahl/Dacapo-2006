@@ -1,0 +1,2 @@
+cd ..
+ant hsqldb-jar

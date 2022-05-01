@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+ 
+<!-- ================================================= -->
+<!-- Test Documentation                                -->
+<!-- ================================================= -->
+   <extension
+         point="org.eclipse.help.toc">
+      <toc
+            file="autosynchbook1.xml"
+            primary="true">
+      </toc>
+      <toc
+            file="autosynchbook2.xml"
+            primary="true">
+      </toc>
+   </extension>
+   <extension
+         point="org.eclipse.help.toc">
+      <toc
+            file="filedoesnotexist.xml">
+      </toc>
+   </extension>
+   <extension
+         point="org.eclipse.help.toc">
+      <toc
+            file="testbooksec1.xml">
+      </toc>
+      <toc
+            file="testbooksec2.xml">
+      </toc>
+      <toc
+            file="testbooksec2ch1.xml">
+      </toc>
+   </extension>
+   <extension
+         point="org.eclipse.help.toc">
+      <toc
+            file="testbook.xml"
+            primary="true">
+      </toc>
+      <toc
+            extradir="extradir"
+            file="testbooksec2ch2.xml">
+      </toc>
+      <toc
+            file="standalonesection.xml">
+      </toc>
+      <toc
+            file="testbookoptionalintegration.xml"
+            primary="false">
+      </toc>
+      <toc
+            file="emptybook.xml"
+            primary="true">
+      </toc>
+   </extension>
+<!-- Test Contexts  -->
+<!-- ========================================== -->
+   <extension
+         point="org.eclipse.help.contexts">
+      <contexts
+            file="contexts.xml">
+      </contexts>
+   </extension>
+<!-- ================================================= -->
+<!-- Test LiveHelp                                     -->
+<!-- ================================================= -->
+   <extension
+         point="org.eclipse.help.toc">
+      <toc
+            file="livehelp/testbooklivehelp.xml"
+            primary="true">
+      </toc>
+   </extension>
+<!-- Various ways of launching -->
+   <extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            label="Launching help tests"
+            visible="true"
+            id="org.eclipse.help.test.actionSet">
+         <action
+               label="DisplayHelpResource_tocHref"
+               class="org.eclipse.help.tests.launching.DisplayHelpResource_tocHref"
+               menubarPath="help/helpEnd"
+               id="org.eclipse.help.tests.DisplayHelpResource_tocHref">
+         </action>
+         <action
+               label="DisplayHelpResource_topicHref"
+               class="org.eclipse.help.tests.launching.DisplayHelpResource_topicHref"
+               menubarPath="help/helpEnd"
+               id="org.eclipse.help.tests.DisplayHelpResource_topicHref">
+         </action>
+         <action
+               label="DisplayHelpResource_IContext_x_y"
+               class="org.eclipse.help.tests.launching.DisplayHelpResource_IContext_x_y"
+               menubarPath="help/helpEnd"
+               id="org.eclipse.help.tests.DisplayHelpResource_IContext_x_y">
+         </action>
+         <action
+               label="DisplayHelpResource_externalHref"
+               class="org.eclipse.help.tests.launching.DisplayHelpResource_externalHref"
+               menubarPath="help/helpEnd"
+               id="org.eclipse.help.tests.DisplayHelpResource_externalHref">
+         </action>
+         <action
+               label="org.eclipse.help.ui.browser.LaunchURL 3.1"
+               menubarPath="help/helpEnd"
+               id="org.eclipse.help.tests.DisplayHelpResource_externalHref_3_1">
+            <class class="org.eclipse.help.ui.browser.LaunchURL">
+               <parameter name="url"
+                     value="http://help.eclipse.org/help30/topic/org.eclipse.platform.doc.isv/reference/api/org/eclipse/help/ui/browser/LaunchURL.html">
+               </parameter>
+            </class>
+         </action>
+         <action
+               label="org.eclipse.help.ui.browser.LaunchURL"
+               url="http://dev.eclipse.org/viewcvs/index.cgi/~checkout~/platform-help-home/dev.html"
+               class="org.eclipse.help.ui.browser.LaunchURL"
+               menubarPath="help/helpEnd"
+               id="org.eclipse.help.tests.DisplayHelpResource_externalHref">
+         </action>
+      </actionSet>
+   </extension>
+   <extension
+         id="org.eclipse.help.test.dynamicHelp"
+         name="test dynamic content producer"
+         point="org.eclipse.help.contentProducer">
+      <contentProducer
+            producer="org.eclipse.help.tests.dynamic.DynamicTopics">
+      </contentProducer>
+   </extension>
+   <extension
+         id="org.eclipse.test.simplerealm"
+         name="%simplerealm.realm"
+         point="org.eclipse.tomcat.realmfactory">
+      <realmfactory class="org.eclipse.help.tests.simplerealm.SimpleRealmFactory">
+         <parameter
+               name="userDefinitionFile"
+               value="c:\\tomcat-users.xml"/>
+      </realmfactory>
+   </extension>
+
+</plugin>

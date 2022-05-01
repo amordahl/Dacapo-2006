@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+
+<toc label="Test Book" topic="testbook.html"> 
+  <topic label="Section 1">
+    <link toc="testbooksec1.xml" />
+  </topic>
+  <topic label="Section 2"> 
+    <anchor id="sec2" />
+    <link toc="brokenlink.xml" />
+  </topic>
+  <topic label="Dynamic Topics"> 
+	  <topic label="Dynamic Topic" href="dynamic.html"/>
+  </topic>
+</toc>

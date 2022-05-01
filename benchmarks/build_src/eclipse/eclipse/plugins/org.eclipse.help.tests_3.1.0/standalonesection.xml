@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+
+<toc label="Standalone section" link_to="notInstalledTOC" > 
+	<topic label="Standalone Section Topic1 " href="alonet1.html"/> 
+</toc>

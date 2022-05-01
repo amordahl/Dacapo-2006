@@ -1,0 +1,2 @@
+cd ..
+ant pmd-jar

@@ -1,0 +1,1445 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>PMD - 3.7</title>
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../../style.css" TITLE="Style">
+</head>
+<body>
+<TABLE cellspacing="0" cellpadding="2"><TBODY>
+    <!-- / home/ tom/ pmd/ pmd/ src/ net/ sourceforge/ pmd/ rules/ strings/ ConsecutiveLiteralAppends.java -->
+  <TR>
+    <TD colspan="6" class="reportHeader">
+    <TABLE width="100%"><TR>
+    <TD valign="top" class="titleText">Clover coverage report -   PMD - 3.7 <DIV class="timestamp"><b>Coverage timestamp:</b>&nbsp;Wed May 31 2006 09:25:59 EDT</DIV>
+            <DIV class="navBar"><a href="../../../../../pkgs-summary.html"><b>Overview</b></a>&nbsp;&nbsp;&nbsp;<a href="pkg-summary.html"><b>Package</b></a>&nbsp;&nbsp;&nbsp;<font class="navBarCurrent">File</font></DIV>
+    
+<DIV class="navBarLink">
+&nbsp;&nbsp;&nbsp;
+    <A HREF="../../../../../index.html" TARGET="_top">FRAMES</A>&nbsp;&nbsp;
+<A HREF="ConsecutiveLiteralAppends.html" TARGET="_top">NO FRAMES</A>&nbsp;&nbsp;
+    </DIV>
+
+</TD>
+         <td class="headerStats" valign="top" width="40%" align="right">
+        <table align="right">
+         <tr>
+           <td nowrap><b>file stats:</b></td>
+           <td align="right"><b>LOC:</b></td>
+           <td align="right">308</td>
+           <td width="10%">&nbsp;</td>
+           <td align="right"><b>Methods:</b></td>
+           <td align="right">9</td>
+         </tr>
+         <tr>
+           <td></td>
+           <td align="right"><b>NCLOC:</b></td>
+           <td align="right">211</td>
+           <td width="10%">&nbsp;</td>
+           <td align="right"><b>Classes:</b></td>
+           <td align="right">1</td>
+         </tr>
+      </table>
+     </td>
+    </TR></TABLE>
+   </TD>
+  </TR>
+
+<TR><TD class="hbreak" colspan="6">&nbsp;</TD></TR>
+  <TR>
+    <TD class="graphHeaderLeft"><b>&nbsp;Source file</b></TD>
+    <TD class="graphHeader">Conditionals</TD>
+    <TD class="graphHeader">Statements</TD>
+    <TD class="graphHeader">Methods</TD>
+    <TD class="graphHeader" align="left" colspan="2"><B>TOTAL</B></TD>
+  </TR>   
+  <TR>
+    <TD class="graphItem">
+        	   ConsecutiveLiteralAppends.java
+	    </TD>
+   
+    <TD class="graphPercent" align="center">95.5%</TD>
+    <TD class="graphPercent" align="center">100%</TD>
+    <TD class="graphPercent" align="center">100%</TD>
+    <TD class="graphBarLeft" align="center"><B>98.4%</B></TD>
+    <TD class="graphBar">
+            <TABLE class="barGraph" cellspacing="0">
+        <TBODY>
+          <TR>
+	               <TD class="covered"><img alt="coverage" src="../../../../../img/trans.gif"
+                   width="196" height="12"></TD>
+            <TD class="uncovered"><img alt="coverage" src="../../../../../img/trans.gif"
+                   width="4" height="12"></TD>
+	   	  </TR>
+	</TBODY>
+      </TABLE>
+          </TD>
+  </TR> 
+</TBODY></TABLE><TABLE cellspacing="0" cellpadding="0" class="srcView"><TBODY>
+<TR><TD align="right" class="lineCount">
+&nbsp;1</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment">/**</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;2</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment"> * BSD-style license; for more info see http://pmd.sourceforge.net/license.html</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;3</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment"> */</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;4</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="keyword">package</span> net.sourceforge.pmd.rules.strings;</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;5</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;6</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="keyword">import</span> net.sourceforge.pmd.AbstractRule;</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;7</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="keyword">import</span> net.sourceforge.pmd.ast.ASTAdditiveExpression;</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;8</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="keyword">import</span> net.sourceforge.pmd.ast.ASTArgumentList;</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;9</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="keyword">import</span> net.sourceforge.pmd.ast.ASTDoStatement;</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;10</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="keyword">import</span> net.sourceforge.pmd.ast.ASTForStatement;</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;11</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="keyword">import</span> net.sourceforge.pmd.ast.ASTIfStatement;</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;12</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="keyword">import</span> net.sourceforge.pmd.ast.ASTLiteral;</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;13</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="keyword">import</span> net.sourceforge.pmd.ast.ASTMethodDeclaration;</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;14</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="keyword">import</span> net.sourceforge.pmd.ast.ASTName;</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;15</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="keyword">import</span> net.sourceforge.pmd.ast.ASTPrimaryExpression;</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;16</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="keyword">import</span> net.sourceforge.pmd.ast.ASTPrimarySuffix;</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;17</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="keyword">import</span> net.sourceforge.pmd.ast.ASTSwitchLabel;</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;18</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="keyword">import</span> net.sourceforge.pmd.ast.ASTSwitchStatement;</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;19</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="keyword">import</span> net.sourceforge.pmd.ast.ASTVariableDeclaratorId;</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;20</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="keyword">import</span> net.sourceforge.pmd.ast.ASTWhileStatement;</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;21</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="keyword">import</span> net.sourceforge.pmd.ast.Node;</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;22</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="keyword">import</span> net.sourceforge.pmd.ast.SimpleNode;</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;23</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="keyword">import</span> net.sourceforge.pmd.symboltable.NameOccurrence;</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;24</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;25</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="keyword">import</span> java.util.HashSet;</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;26</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="keyword">import</span> java.util.Iterator;</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;27</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="keyword">import</span> java.util.List;</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;28</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="keyword">import</span> java.util.Map;</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;29</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="keyword">import</span> java.util.Set;</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;30</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;31</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment">/**</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;32</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment"> * This rule finds concurrent calls to StringBuffer.append where String literals</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;33</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment"> * are used It would be much better to make these calls using one call to</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;34</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment"> * .append</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;35</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment"> * &lt;p/&gt;</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;36</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment"> * example:</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;37</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment"> * &lt;p/&gt;</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;38</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment"> * &lt;pre&gt;</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;39</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment"> * StringBuffer buf = new StringBuffer();</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;40</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment"> * buf.append(&amp;quot;Hello&amp;quot;);</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;41</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment"> * buf.append(&amp;quot; &amp;quot;).append(&amp;quot;World&amp;quot;);</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;42</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment"> * &lt;/pre&gt;</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;43</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment"> * &lt;p/&gt;</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;44</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment"> * This would be more eloquently put as:</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;45</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment"> * &lt;p/&gt;</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;46</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment"> * &lt;pre&gt;</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;47</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment"> * StringBuffer buf = new StringBuffer();</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;48</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment"> * buf.append(&amp;quot;Hello World&amp;quot;);</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;49</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment"> * &lt;/pre&gt;</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;50</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment"> * &lt;p/&gt;</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;51</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment"> * The rule takes one parameter, threshold, which defines the lower limit of</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;52</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment"> * consecutive appends before a violation is created. The default is 1.</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;53</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment"> */</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+<A name="ConsecutiveLiteralAppends">&nbsp;54</A></TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="keyword">public</span> <span class="keyword">class</span> ConsecutiveLiteralAppends <span class="keyword">extends</span> AbstractRule {</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;55</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;56</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">    <span class="keyword">private</span> final <span class="keyword">static</span> Set blockParents;</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;57</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;58</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">    <span class="keyword">static</span> {</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;59</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 59: statement executed 12 times.">&nbsp;12</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 59: statement executed 12 times.">        blockParents = <span class="keyword">new</span> HashSet();</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;60</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 60: statement executed 12 times.">&nbsp;12</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 60: statement executed 12 times.">        blockParents.add(ASTForStatement.<span class="keyword">class</span>);</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;61</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 61: statement executed 12 times.">&nbsp;12</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 61: statement executed 12 times.">        blockParents.add(ASTWhileStatement.<span class="keyword">class</span>);</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;62</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 62: statement executed 12 times.">&nbsp;12</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 62: statement executed 12 times.">        blockParents.add(ASTDoStatement.<span class="keyword">class</span>);</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;63</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 63: statement executed 12 times.">&nbsp;12</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 63: statement executed 12 times.">        blockParents.add(ASTIfStatement.<span class="keyword">class</span>);</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;64</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 64: statement executed 12 times.">&nbsp;12</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 64: statement executed 12 times.">        blockParents.add(ASTSwitchStatement.<span class="keyword">class</span>);</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;65</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 65: statement executed 12 times.">&nbsp;12</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 65: statement executed 12 times.">        blockParents.add(ASTMethodDeclaration.<span class="keyword">class</span>);</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;66</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">    }</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;67</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;68</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">    <span class="keyword">private</span> <span class="keyword">int</span> threshold = 1;</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;69</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"></SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;70</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 70: method entered 78 times.">&nbsp;78</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 70: method entered 78 times.">    <span class="keyword">public</span> Object visit(ASTVariableDeclaratorId node, Object data) {</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;71</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"></SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;72</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 72: statement executed 78 times.">&nbsp;78</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 72: statement executed 78 times.">        <span class="keyword">if</span> (!isStringBuffer(node)) {</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;73</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 73: statement executed 35 times.">&nbsp;35</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 73: statement executed 35 times.">            <span class="keyword">return</span> data;</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;74</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">        }</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;75</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 75: statement executed 43 times.">&nbsp;43</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 75: statement executed 43 times.">        threshold = getIntProperty(<span class="string">"threshold"</span>);</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;76</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"></SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;77</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 77: statement executed 43 times.">&nbsp;43</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 77: statement executed 43 times.">        <span class="keyword">int</span> concurrentCount = checkConstructor(node, data);</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;78</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 78: statement executed 43 times.">&nbsp;43</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 78: statement executed 43 times.">        Node lastBlock = getFirstParentBlock(node);</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;79</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 79: statement executed 43 times.">&nbsp;43</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 79: statement executed 43 times.">        Node currentBlock = lastBlock;</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;80</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 80: statement executed 43 times.">&nbsp;43</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 80: statement executed 43 times.">        Map decls = node.getScope().getVariableDeclarations();</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;81</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 81: statement executed 43 times.">&nbsp;43</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 81: statement executed 43 times.">        SimpleNode rootNode = <span class="keyword">null</span>;</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;82</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">        <span class="comment">// only want the constructor flagged if it's really containing strings</span></SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;83</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 83: statement executed 43 times.">&nbsp;43</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 83: statement executed 43 times.">        <span class="keyword">if</span> (concurrentCount == 1) {</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;84</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 84: statement executed 2 times.">&nbsp;2</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 84: statement executed 2 times.">            rootNode = node;</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;85</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">        }</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;86</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 86: statement executed 43 times.">&nbsp;43</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 86: statement executed 43 times.">        <span class="keyword">for</span> (Iterator iter = decls.entrySet().iterator(); iter.hasNext();) {</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;87</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 87: statement executed 58 times.">&nbsp;58</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 87: statement executed 58 times.">            Map.Entry entry = (Map.Entry) iter.next();</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;88</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 88: statement executed 58 times.">&nbsp;58</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 88: statement executed 58 times.">            List decl = (List) entry.getValue();</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;89</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 89: statement executed 58 times.">&nbsp;58</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 89: statement executed 58 times.">            <span class="keyword">for</span> (<span class="keyword">int</span> ix = 0; ix &lt; decl.size(); ix++) {</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;90</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 90: statement executed 141 times.">&nbsp;141</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 90: statement executed 141 times.">                NameOccurrence no = (NameOccurrence) decl.get(ix);</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;91</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 91: statement executed 141 times.">&nbsp;141</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 91: statement executed 141 times.">                SimpleNode n = no.getLocation();</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;92</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"></SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;93</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 93: statement executed 141 times.">&nbsp;141</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 93: statement executed 141 times.">                currentBlock = getFirstParentBlock(n);</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;94</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"></SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;95</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 95: statement executed 141 times.">&nbsp;141</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 95: statement executed 141 times.">                <span class="keyword">if</span> (!InefficientStringBuffering.isInStringBufferAppend(n, 3)) {</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;96</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 96: statement executed 26 times.">&nbsp;26</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 96: statement executed 26 times.">                    <span class="keyword">if</span> (!no.isPartOfQualifiedName()) {</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;97</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 97: statement executed 14 times.">&nbsp;14</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 97: statement executed 14 times.">                        checkForViolation(rootNode, data, concurrentCount);</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;98</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 98: statement executed 14 times.">&nbsp;14</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 98: statement executed 14 times.">                        concurrentCount = 0;</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;99</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">                    }</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;100</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 100: statement executed 26 times.">&nbsp;26</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 100: statement executed 26 times.">                    <span class="keyword">continue</span>;</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;101</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">                }</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;102</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 102: statement executed 115 times.">&nbsp;115</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 102: statement executed 115 times.">                ASTPrimaryExpression s = (ASTPrimaryExpression) n</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;103</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">                        .getFirstParentOfType(ASTPrimaryExpression.<span class="keyword">class</span>);</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;104</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 104: statement executed 115 times.">&nbsp;115</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 104: statement executed 115 times.">                <span class="keyword">int</span> numChildren = s.jjtGetNumChildren();</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;105</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 105: statement executed 115 times.">&nbsp;115</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 105: statement executed 115 times.">                <span class="keyword">for</span> (<span class="keyword">int</span> jx = 0; jx &lt; numChildren; jx++) {</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;106</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 106: statement executed 246 times.">&nbsp;246</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 106: statement executed 246 times.">                    SimpleNode sn = (SimpleNode) s.jjtGetChild(jx);</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;107</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 107: statement executed 246 times.">&nbsp;246</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 107: statement executed 246 times.">                    <span class="keyword">if</span> (!(sn <span class="keyword">instanceof</span> ASTPrimarySuffix)</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;108</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">                            || sn.getImage() != <span class="keyword">null</span>) {</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;109</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 109: statement executed 123 times.">&nbsp;123</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 109: statement executed 123 times.">                        <span class="keyword">continue</span>;</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;110</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">                    }</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;111</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;112</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">                    <span class="comment">// see if it changed blocks</span></SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;113</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 113: statement executed 123 times.">&nbsp;123</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 113: statement executed 123 times.">                    <span class="keyword">if</span> ((currentBlock != <span class="keyword">null</span> &amp;&amp; lastBlock != <span class="keyword">null</span> &amp;&amp; !currentBlock</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;114</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">                            .equals(lastBlock))</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;115</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">                            || (currentBlock == <span class="keyword">null</span> ^ lastBlock == <span class="keyword">null</span>)) {</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;116</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 116: statement executed 46 times.">&nbsp;46</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 116: statement executed 46 times.">                        checkForViolation(rootNode, data, concurrentCount);</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;117</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 117: statement executed 46 times.">&nbsp;46</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 117: statement executed 46 times.">                        concurrentCount = 0;</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;118</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">                    }</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;119</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;120</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">                    <span class="comment">// if concurrent is 0 then we reset the root to report from</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;121</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">                    <span class="comment">// here</span></SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;122</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 122: statement executed 123 times.">&nbsp;123</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 122: statement executed 123 times.">                    <span class="keyword">if</span> (concurrentCount == 0) {</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;123</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 123: statement executed 93 times.">&nbsp;93</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 123: statement executed 93 times.">                        rootNode = sn;</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;124</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">                    }</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;125</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 125: statement executed 123 times.">&nbsp;123</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 125: statement executed 123 times.">                    <span class="keyword">if</span> (isAdditive(sn)) {</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;126</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 126: statement executed 7 times.">&nbsp;7</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 126: statement executed 7 times.">                        concurrentCount = processAdditive(data,</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;127</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">                                concurrentCount, sn, rootNode);</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;128</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 128: statement executed 7 times.">&nbsp;7</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 128: statement executed 7 times.">                        <span class="keyword">if</span> (concurrentCount != 0) {</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;129</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 129: statement executed 4 times.">&nbsp;4</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 129: statement executed 4 times.">                            rootNode = sn;</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;130</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">                        }</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;131</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 131: statement executed 116 times.">&nbsp;116</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 131: statement executed 116 times.">                    } <span class="keyword">else</span> <span class="keyword">if</span> (!isAppendingStringLiteral(sn)) {</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;132</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 132: statement executed 13 times.">&nbsp;13</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 132: statement executed 13 times.">                        checkForViolation(rootNode, data, concurrentCount);</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;133</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 133: statement executed 13 times.">&nbsp;13</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 133: statement executed 13 times.">                        concurrentCount = 0;</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;134</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">                    } <span class="keyword">else</span> {</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;135</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 135: statement executed 103 times.">&nbsp;103</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 135: statement executed 103 times.">                        concurrentCount++;</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;136</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">                    }</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;137</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 137: statement executed 123 times.">&nbsp;123</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 137: statement executed 123 times.">                    lastBlock = currentBlock;</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;138</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">                }</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;139</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">            }</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;140</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">        }</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;141</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 141: statement executed 43 times.">&nbsp;43</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 141: statement executed 43 times.">        checkForViolation(rootNode, data, concurrentCount);</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;142</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 142: statement executed 43 times.">&nbsp;43</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 142: statement executed 43 times.">        <span class="keyword">return</span> data;</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;143</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">    }</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;144</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;145</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">    <span class="comment">/**</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;146</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment">     * Determie if the constructor contains (or ends with) a String Literal</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;147</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment">     *</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;148</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment">     * <span class="javadoc">@param</span> node</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;149</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment">     * <span class="javadoc">@return</span> 1 if the constructor contains string argument, else 0</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;150</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment">     */</span></SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;151</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 151: method entered 43 times.">&nbsp;43</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 151: method entered 43 times.">    <span class="keyword">private</span> <span class="keyword">int</span> checkConstructor(ASTVariableDeclaratorId node, Object data) {</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;152</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 152: statement executed 43 times.">&nbsp;43</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 152: statement executed 43 times.">        Node parent = node.jjtGetParent();</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;153</TD>
+<TD align="right" class="coverageCountHilight">
+<A title="Line 153: expression evaluated to true 43 times, false 0 times.">&nbsp;43</A>
+</TD><TD class="srcCell"><SPAN class="srcLineHilight"><A title="Line 153: expression evaluated to true 43 times, false 0 times.">        <span class="keyword">if</span> (parent.jjtGetNumChildren() &gt;= 2) {</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;154</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 154: statement executed 43 times.">&nbsp;43</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 154: statement executed 43 times.">            ASTArgumentList list = (ASTArgumentList) ((SimpleNode) parent</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;155</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">                    .jjtGetChild(1)).getFirstChildOfType(ASTArgumentList.<span class="keyword">class</span>);</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;156</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 156: statement executed 43 times.">&nbsp;43</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 156: statement executed 43 times.">            <span class="keyword">if</span> (list != <span class="keyword">null</span>) {</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;157</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 157: statement executed 4 times.">&nbsp;4</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 157: statement executed 4 times.">                ASTLiteral literal = (ASTLiteral) list</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;158</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">                        .getFirstChildOfType(ASTLiteral.<span class="keyword">class</span>);</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;159</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 159: statement executed 4 times.">&nbsp;4</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 159: statement executed 4 times.">                <span class="keyword">if</span> (!isAdditive(list) &amp;&amp; literal != <span class="keyword">null</span></A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;160</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">                        &amp;&amp; literal.isStringLiteral()) {</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;161</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 161: statement executed 1 time.">&nbsp;1</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 161: statement executed 1 time.">                    <span class="keyword">return</span> 1;</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;162</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">                } </SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;163</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 163: statement executed 3 times.">&nbsp;3</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 163: statement executed 3 times.">                <span class="keyword">return</span> processAdditive(data, 0, list, node);</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;164</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">            }</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;165</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">        }</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;166</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 166: statement executed 39 times.">&nbsp;39</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 166: statement executed 39 times.">        <span class="keyword">return</span> 0;</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;167</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">    }</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;168</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"></SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;169</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 169: method entered 10 times.">&nbsp;10</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 169: method entered 10 times.">    <span class="keyword">private</span> <span class="keyword">int</span> processAdditive(Object data, <span class="keyword">int</span> concurrentCount,</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;170</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">                                SimpleNode sn, SimpleNode rootNode) {</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;171</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 171: statement executed 10 times.">&nbsp;10</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 171: statement executed 10 times.">        ASTAdditiveExpression additive = (ASTAdditiveExpression) sn</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;172</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">                .getFirstChildOfType(ASTAdditiveExpression.<span class="keyword">class</span>);</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;173</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 173: statement executed 10 times.">&nbsp;10</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 173: statement executed 10 times.">        <span class="keyword">if</span> (additive == <span class="keyword">null</span>) {</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;174</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 174: statement executed 1 time.">&nbsp;1</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 174: statement executed 1 time.">            <span class="keyword">return</span> 0;</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;175</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">        }</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;176</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 176: statement executed 9 times.">&nbsp;9</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 176: statement executed 9 times.">        <span class="keyword">int</span> count = concurrentCount;</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;177</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 177: statement executed 9 times.">&nbsp;9</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 177: statement executed 9 times.">        <span class="keyword">boolean</span> found = <span class="keyword">false</span>;</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;178</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 178: statement executed 9 times.">&nbsp;9</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 178: statement executed 9 times.">        <span class="keyword">for</span> (<span class="keyword">int</span> ix = 0; ix &lt; additive.jjtGetNumChildren(); ix++) {</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;179</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 179: statement executed 20 times.">&nbsp;20</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 179: statement executed 20 times.">            SimpleNode childNode = (SimpleNode) additive.jjtGetChild(ix);</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;180</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 180: statement executed 20 times.">&nbsp;20</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 180: statement executed 20 times.">            <span class="keyword">if</span> (childNode.jjtGetNumChildren() != 1</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;181</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">                    || childNode.findChildrenOfType(ASTName.<span class="keyword">class</span>).size() != 0) {</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;182</TD>
+<TD align="right" class="coverageCountHilight">
+<A title="Line 182: expression evaluated to true 7 times, false 0 times.">&nbsp;7</A>
+</TD><TD class="srcCell"><SPAN class="srcLineHilight"><A title="Line 182: expression evaluated to true 7 times, false 0 times.">                <span class="keyword">if</span> (!found) {</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;183</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 183: statement executed 7 times.">&nbsp;7</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 183: statement executed 7 times.">                    checkForViolation(rootNode, data, count);</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;184</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 184: statement executed 7 times.">&nbsp;7</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 184: statement executed 7 times.">                    found = <span class="keyword">true</span>;</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;185</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">                }</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;186</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 186: statement executed 7 times.">&nbsp;7</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 186: statement executed 7 times.">                count = 0;</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;187</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">            } <span class="keyword">else</span> {</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;188</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 188: statement executed 13 times.">&nbsp;13</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 188: statement executed 13 times.">                count++;</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;189</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">            }</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;190</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">        }</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;191</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;192</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">        <span class="comment">// no variables appended, compiler will take care of merging all the</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;193</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">        <span class="comment">// string concats, we really only have 1 then</span></SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;194</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 194: statement executed 9 times.">&nbsp;9</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 194: statement executed 9 times.">        <span class="keyword">if</span> (!found) {</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;195</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 195: statement executed 2 times.">&nbsp;2</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 195: statement executed 2 times.">            count = 1;</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;196</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">        }</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;197</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"></SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;198</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 198: statement executed 9 times.">&nbsp;9</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 198: statement executed 9 times.">        <span class="keyword">return</span> count;</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;199</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">    }</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;200</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;201</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">    <span class="comment">/**</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;202</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment">     * Checks to see if there is string concatenation in the node.</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;203</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment">     * </span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;204</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment">     * This method checks if it's additive with respect to the append method</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;205</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment">     * only.</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;206</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment">     * </span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;207</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment">     * <span class="javadoc">@param</span> n</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;208</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment">     *            Node to check</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;209</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment">     * <span class="javadoc">@return</span> true if the node has an additive expression (i.e. "Hello " +</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;210</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment">     *         Const.WORLD)</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;211</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment">     */</span></SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;212</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 212: method entered 127 times.">&nbsp;127</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 212: method entered 127 times.">    <span class="keyword">private</span> <span class="keyword">boolean</span> isAdditive(SimpleNode n) {</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;213</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 213: statement executed 127 times.">&nbsp;127</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 213: statement executed 127 times.">        List lstAdditive = n.findChildrenOfType(ASTAdditiveExpression.<span class="keyword">class</span>);</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;214</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 214: statement executed 127 times.">&nbsp;127</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 214: statement executed 127 times.">        <span class="keyword">if</span> (lstAdditive.size() == 0) {</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;215</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 215: statement executed 116 times.">&nbsp;116</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 215: statement executed 116 times.">            <span class="keyword">return</span> <span class="keyword">false</span>;</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;216</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">        }</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;217</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">        <span class="comment">// if there are more than 1 set of arguments above us we're not in the</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;218</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">        <span class="comment">// append</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;219</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">        <span class="comment">// but a sub-method call</span></SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;220</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 220: statement executed 11 times.">&nbsp;11</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 220: statement executed 11 times.">        <span class="keyword">for</span> (<span class="keyword">int</span> ix = 0; ix &lt; lstAdditive.size(); ix++) {</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;221</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 221: statement executed 11 times.">&nbsp;11</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 221: statement executed 11 times.">            ASTAdditiveExpression expr = (ASTAdditiveExpression) lstAdditive.get(ix);</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;222</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 222: statement executed 11 times.">&nbsp;11</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 222: statement executed 11 times.">            <span class="keyword">if</span> (expr.getParentsOfType(ASTArgumentList.<span class="keyword">class</span>).size() != 1) {</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;223</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 223: statement executed 2 times.">&nbsp;2</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 223: statement executed 2 times.">                <span class="keyword">return</span> <span class="keyword">false</span>;</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;224</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">            }</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;225</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">        }</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;226</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 226: statement executed 9 times.">&nbsp;9</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 226: statement executed 9 times.">        <span class="keyword">return</span> <span class="keyword">true</span>;</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;227</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">    }</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;228</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;229</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">    <span class="comment">/**</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;230</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment">     * Get the first parent. Keep track of the last node though. For If</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;231</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment">     * statements it's the only way we can differentiate between if's and else's</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;232</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment">     * For switches it's the only way we can differentiate between switches</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;233</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment">     *</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;234</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment">     * <span class="javadoc">@param</span> node The node to check</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;235</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment">     * <span class="javadoc">@return</span> The first parent block</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;236</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment">     */</span></SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;237</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 237: method entered 184 times.">&nbsp;184</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 237: method entered 184 times.">    <span class="keyword">private</span> Node getFirstParentBlock(Node node) {</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;238</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 238: statement executed 184 times.">&nbsp;184</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 238: statement executed 184 times.">        Node parentNode = node.jjtGetParent();</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;239</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"></SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;240</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 240: statement executed 184 times.">&nbsp;184</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 240: statement executed 184 times.">        Node lastNode = node;</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;241</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 241: statement executed 184 times.">&nbsp;184</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 241: statement executed 184 times.">        <span class="keyword">while</span> (parentNode != <span class="keyword">null</span></A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;242</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">                &amp;&amp; !blockParents.contains(parentNode.getClass())) {</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;243</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 243: statement executed 1139 times.">&nbsp;1139</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 243: statement executed 1139 times.">            lastNode = parentNode;</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;244</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 244: statement executed 1139 times.">&nbsp;1139</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 244: statement executed 1139 times.">            parentNode = parentNode.jjtGetParent();</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;245</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">        }</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;246</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 246: statement executed 184 times.">&nbsp;184</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 246: statement executed 184 times.">        <span class="keyword">if</span> (parentNode != <span class="keyword">null</span></A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;247</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">                &amp;&amp; parentNode.getClass().equals(ASTIfStatement.<span class="keyword">class</span>)) {</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;248</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 248: statement executed 17 times.">&nbsp;17</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 248: statement executed 17 times.">            parentNode = lastNode;</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;249</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 249: statement executed 167 times.">&nbsp;167</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 249: statement executed 167 times.">        } <span class="keyword">else</span> <span class="keyword">if</span> (parentNode != <span class="keyword">null</span></A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;250</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">                &amp;&amp; parentNode.getClass().equals(ASTSwitchStatement.<span class="keyword">class</span>)) {</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;251</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 251: statement executed 10 times.">&nbsp;10</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 251: statement executed 10 times.">            parentNode = getSwitchParent(parentNode, lastNode);</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;252</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">        }</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;253</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 253: statement executed 184 times.">&nbsp;184</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 253: statement executed 184 times.">        <span class="keyword">return</span> parentNode;</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;254</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">    }</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;255</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;256</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">    <span class="comment">/**</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;257</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment">     * Determine which SwitchLabel we belong to inside a switch</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;258</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment">     *</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;259</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment">     * <span class="javadoc">@param</span> parentNode The parent node we're looking at</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;260</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment">     * <span class="javadoc">@param</span> lastNode   The last node processed</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;261</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment">     * <span class="javadoc">@return</span> The parent node for the switch statement</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;262</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment">     */</span></SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;263</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 263: method entered 10 times.">&nbsp;10</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 263: method entered 10 times.">    <span class="keyword">private</span> Node getSwitchParent(Node parentNode, Node lastNode) {</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;264</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 264: statement executed 10 times.">&nbsp;10</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 264: statement executed 10 times.">        <span class="keyword">int</span> allChildren = parentNode.jjtGetNumChildren();</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;265</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 265: statement executed 10 times.">&nbsp;10</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 265: statement executed 10 times.">        ASTSwitchLabel label = <span class="keyword">null</span>;</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;266</TD>
+<TD align="right" class="coverageCountHilight">
+<A title="Line 266: expression evaluated to true 103 times, false 0 times.">&nbsp;103</A>
+</TD><TD class="srcCell"><SPAN class="srcLineHilight"><A title="Line 266: expression evaluated to true 103 times, false 0 times.">        <span class="keyword">for</span> (<span class="keyword">int</span> ix = 0; ix &lt; allChildren; ix++) {</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;267</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 267: statement executed 103 times.">&nbsp;103</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 267: statement executed 103 times.">            Node n = parentNode.jjtGetChild(ix);</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;268</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 268: statement executed 103 times.">&nbsp;103</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 268: statement executed 103 times.">            <span class="keyword">if</span> (n.getClass().equals(ASTSwitchLabel.<span class="keyword">class</span>)) {</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;269</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 269: statement executed 36 times.">&nbsp;36</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 269: statement executed 36 times.">                label = (ASTSwitchLabel) n;</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;270</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 270: statement executed 67 times.">&nbsp;67</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 270: statement executed 67 times.">            } <span class="keyword">else</span> <span class="keyword">if</span> (n.equals(lastNode)) {</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;271</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 271: statement executed 10 times.">&nbsp;10</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 271: statement executed 10 times.">                parentNode = label;</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;272</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 272: statement executed 10 times.">&nbsp;10</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 272: statement executed 10 times.">                <span class="keyword">break</span>;</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;273</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">            }</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;274</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">        }</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;275</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 275: statement executed 10 times.">&nbsp;10</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 275: statement executed 10 times.">        <span class="keyword">return</span> parentNode;</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;276</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">    }</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;277</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;278</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">    <span class="comment">/**</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;279</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment">     * Helper method checks to see if a violation occured, and adds a</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;280</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment">     * RuleViolation if it did</span></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;281</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"><span class="comment">     */</span></SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;282</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 282: method entered 123 times.">&nbsp;123</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 282: method entered 123 times.">    <span class="keyword">private</span> <span class="keyword">void</span> checkForViolation(SimpleNode node, Object data,</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;283</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">                                   <span class="keyword">int</span> concurrentCount) {</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;284</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 284: statement executed 123 times.">&nbsp;123</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 284: statement executed 123 times.">        <span class="keyword">if</span> (concurrentCount &gt; threshold) {</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;285</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 285: statement executed 20 times.">&nbsp;20</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 285: statement executed 20 times.">            String[] param = {String.valueOf(concurrentCount)};</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;286</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 286: statement executed 20 times.">&nbsp;20</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 286: statement executed 20 times.">            addViolation(data, node, param);</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;287</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">        }</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;288</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">    }</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;289</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"></SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;290</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 290: method entered 116 times.">&nbsp;116</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 290: method entered 116 times.">    <span class="keyword">private</span> <span class="keyword">boolean</span> isAppendingStringLiteral(SimpleNode node) {</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;291</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 291: statement executed 116 times.">&nbsp;116</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 291: statement executed 116 times.">        SimpleNode n = node;</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;292</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 292: statement executed 116 times.">&nbsp;116</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 292: statement executed 116 times.">        <span class="keyword">while</span> (n.jjtGetNumChildren() != 0</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;293</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">                &amp;&amp; !n.getClass().equals(ASTLiteral.<span class="keyword">class</span>)) {</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;294</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 294: statement executed 696 times.">&nbsp;696</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 294: statement executed 696 times.">            n = (SimpleNode) n.jjtGetChild(0);</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;295</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">        }</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;296</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 296: statement executed 116 times.">&nbsp;116</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 296: statement executed 116 times.">        <span class="keyword">return</span> n.getClass().equals(ASTLiteral.<span class="keyword">class</span>);</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;297</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">    }</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;298</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"></SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;299</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 299: method entered 78 times.">&nbsp;78</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 299: method entered 78 times.">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">boolean</span> isStringBuffer(ASTVariableDeclaratorId node) {</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;300</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 300: statement executed 78 times.">&nbsp;78</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 300: statement executed 78 times.">        SimpleNode nn = (SimpleNode) node.getTypeNameNode();</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;301</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 301: statement executed 78 times.">&nbsp;78</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 301: statement executed 78 times.">        <span class="keyword">if</span> (nn.jjtGetNumChildren() == 0) {</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;302</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 302: statement executed 9 times.">&nbsp;9</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 302: statement executed 9 times.">            <span class="keyword">return</span> <span class="keyword">false</span>;</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;303</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">        }</SPAN></TD></TR><TR><TD align="right" class="lineCountHilight">
+&nbsp;304</TD>
+<TD align="right" class="lineCountHilight">
+<A title="Line 304: statement executed 69 times.">&nbsp;69</A>
+</TD><TD class="srcCell"><SPAN class="srcLine"><A title="Line 304: statement executed 69 times.">        <span class="keyword">return</span> <span class="string">"StringBuffer"</span>.equals(((SimpleNode) nn.jjtGetChild(0))</A>
+</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;305</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">                .getImage());</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;306</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">    }</SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;307</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine"></SPAN></TD></TR><TR><TD align="right" class="lineCount">
+&nbsp;308</TD>
+<TD align="right" class="coverageCount">
+&nbsp;&nbsp;
+</TD><TD class="srcCell"><SPAN class="srcLine">}</SPAN></TD></TR></TBODY></TABLE>
+<TABLE width="100%"><TR><TD class="hbreak" colspan="6">&nbsp;</TD></TR>
+<TR><TD class="footer" colspan="6">
+<table>
+<tr>
+ <td><a target="_new" href="http://www.cenqua.com/clover?6HR"><img alt="Clover" src="../../../../../img/logo.gif" border="0"></a></td><td nowrap><i>Report generated by </i><a target="_new" href="http://www.cenqua.com/clover?6HR">Clover Code Coverage v1.3.6</a><i><BR>Wed May 31 2006 09:26:49 EDT</i>.</td>
+<td>&nbsp;</td><td style="BORDER-LEFT: #9c9c9c 1px solid;">&nbsp;</td><td>Open Source License registered to the PMD Project. This license of Clover is provided to support the development of PMD only. </td>
+</tr>
+</table>
+</td>
+</tr></TABLE>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.contexts"?>
+
+<contexts>
+
+   <context  id="testContext" >
+      <description>Test Context - Description</description>
+ 	  <topic label="Test Context Link 1" href="hrefValue"/>
+   </context>
+
+   <context  id="testContextDescOnly" >
+      <description>Test Context Description Only - Description</description>
+   </context>
+
+</contexts>

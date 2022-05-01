@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/jython_Release_2_2alpha1/Demo/Demo.iml" filepath="$PROJECT_DIR$/jython_Release_2_2alpha1/Demo/Demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jython_Release_2_2alpha1/Lib/Lib.iml" filepath="$PROJECT_DIR$/jython_Release_2_2alpha1/Lib/Lib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jython_Release_2_2alpha1/src/java/Lib/Lib1.iml" filepath="$PROJECT_DIR$/jython_Release_2_2alpha1/src/java/Lib/Lib1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jython_Release_2_2alpha1/Demo/jreload/jreload.iml" filepath="$PROJECT_DIR$/jython_Release_2_2alpha1/Demo/jreload/jreload.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/jython.iml" filepath="$PROJECT_DIR$/.idea/jython.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jython_Release_2_2alpha1/src/jython_Release_2_2alpha1.iml" filepath="$PROJECT_DIR$/jython_Release_2_2alpha1/src/jython_Release_2_2alpha1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jython_Release_2_2alpha1/src/java/jython_Release_2_2alpha11.iml" filepath="$PROJECT_DIR$/jython_Release_2_2alpha1/src/java/jython_Release_2_2alpha11.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jython_Release_2_2alpha1/jython_Release_2_2alpha12.iml" filepath="$PROJECT_DIR$/jython_Release_2_2alpha1/jython_Release_2_2alpha12.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+
+<toc label="Empty Test Book" topic="testbook.html"> 
+  <topic label="Empty Container">
+    <anchor id="anchor1" />
+  </topic>
+  <anchor id="anchor2" />
+</toc>

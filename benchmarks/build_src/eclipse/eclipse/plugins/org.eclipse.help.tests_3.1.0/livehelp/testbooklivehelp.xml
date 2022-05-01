@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+
+<toc label="Test Live Help Book" topic="livehelp/callLiveHelp.html"> 
+  <topic label="Live Help" href="livehelp/callLiveHelp.html" />
+  <topic label="Test Live Help (JUnit)" href="livehelp/testLiveHelp.html" />
+</toc>

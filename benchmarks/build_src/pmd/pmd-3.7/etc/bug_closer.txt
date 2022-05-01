@@ -1,0 +1,10 @@
+Fixed in CVS, and you can download a new pmd-3.7.jar file here:
+
+http://infoether.com/~tom/pmd-3.7.jar
+
+that contains that fix.
+
+Thanks,
+
+Tom
+Using PMD?  Get the book!  http://pmdapplied.com/

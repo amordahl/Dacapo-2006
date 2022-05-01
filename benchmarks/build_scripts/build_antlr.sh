@@ -1,0 +1,2 @@
+cd ..
+ant antlr-jar

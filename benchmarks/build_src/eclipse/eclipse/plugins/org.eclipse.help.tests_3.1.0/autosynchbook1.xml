@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+
+<toc label="autosynchbook1"> 
+  <topic label="autosynchbook1 topic1" href="autosynchbook1topic1.html" />
+  <topic label="autosynchbook1 topic2" href="autosynchbook1topic2.html" />
+</toc>

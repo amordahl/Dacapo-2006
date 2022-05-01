@@ -1,0 +1,451 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" /><title>InsufficientStringBufferDeclarationTest xref</title>
+<link type="text/css" rel="stylesheet" href="../../../../../../stylesheet.css" />
+</head>
+<body>
+<pre>
+
+<a name="1" href="#1">1</a>   <em>/**<em>*</em></em>
+<a name="2" href="#2">2</a>   <em> * BSD-style license; for more info see <a href="http://pmd.sourceforge.net/license.html" target="alexandria_uri">http://pmd.sourceforge.net/license.html</a></em>
+<a name="3" href="#3">3</a>   <em>*/</em>
+<a name="4" href="#4">4</a>   <strong>package</strong> <a href="../../../../../../test/net/sourceforge/pmd/rules/strings/package-summary.html">test.net.sourceforge.pmd.rules.strings</a>;
+<a name="5" href="#5">5</a>   
+<a name="6" href="#6">6</a>   <strong>import</strong> net.sourceforge.pmd.PMD;
+<a name="7" href="#7">7</a>   <strong>import</strong> net.sourceforge.pmd.Rule;
+<a name="8" href="#8">8</a>   <strong>import</strong> test.net.sourceforge.pmd.testframework.SimpleAggregatorTst;
+<a name="9" href="#9">9</a>   <strong>import</strong> test.net.sourceforge.pmd.testframework.TestDescriptor;
+<a name="10" href="#10">10</a>  
+<a name="11" href="#11">11</a>  <strong>public</strong> <strong>class</strong> <a href="../../../../../../test/net/sourceforge/pmd/rules/strings/InsufficientStringBufferDeclarationTest.html">InsufficientStringBufferDeclarationTest</a> <strong>extends</strong> <a href="../../../../../../test/net/sourceforge/pmd/testframework/SimpleAggregatorTst.html">SimpleAggregatorTst</a> {
+<a name="12" href="#12">12</a>  
+<a name="13" href="#13">13</a>      <strong>private</strong> Rule rule;
+<a name="14" href="#14">14</a>  
+<a name="15" href="#15">15</a>      <strong>public</strong> <strong>void</strong> setUp() throws Exception {
+<a name="16" href="#16">16</a>          rule = findRule(<span class="string">"strings"</span>, <span class="string">"InsufficientStringBufferDeclaration"</span>);
+<a name="17" href="#17">17</a>      }
+<a name="18" href="#18">18</a>  
+<a name="19" href="#19">19</a>      <strong>public</strong> <strong>void</strong> testAll() {
+<a name="20" href="#20">20</a>  
+<a name="21" href="#21">21</a>          <em class="comment">// first run the legal tests</em>
+<a name="22" href="#22">22</a>          runTests(<strong>new</strong> <a href="../../../../../../test/net/sourceforge/pmd/testframework/TestDescriptor.html">TestDescriptor</a>[] {
+<a name="23" href="#23">23</a>                  <strong>new</strong> <a href="../../../../../../test/net/sourceforge/pmd/testframework/TestDescriptor.html">TestDescriptor</a>(TEST32, <span class="string">"32, Constructor from math"</span>, 0, rule),
+<a name="24" href="#24">24</a>          });
+<a name="25" href="#25">25</a>  
+<a name="26" href="#26">26</a>          runTests(<strong>new</strong> <a href="../../../../../../test/net/sourceforge/pmd/testframework/TestDescriptor.html">TestDescriptor</a>[] {
+<a name="27" href="#27">27</a>                  <strong>new</strong> <a href="../../../../../../test/net/sourceforge/pmd/testframework/TestDescriptor.html">TestDescriptor</a>(TEST1, <span class="string">"1, StringBuffer allocated with enough space"</span>, 0, rule),
+<a name="28" href="#28">28</a>                  <strong>new</strong> <a href="../../../../../../test/net/sourceforge/pmd/testframework/TestDescriptor.html">TestDescriptor</a>(TEST3, <span class="string">"3, StringBuffer allocated with space"</span>, 0, rule),
+<a name="29" href="#29">29</a>                  <strong>new</strong> <a href="../../../../../../test/net/sourceforge/pmd/testframework/TestDescriptor.html">TestDescriptor</a>(TEST4, <span class="string">"4, StringBuffer allocated from variable"</span>, 0, rule),
+<a name="30" href="#30">30</a>                  <strong>new</strong> <a href="../../../../../../test/net/sourceforge/pmd/testframework/TestDescriptor.html">TestDescriptor</a>(TEST5, <span class="string">"5, creating a new StringBuffer"</span>, 0, rule),
+<a name="31" href="#31">31</a>                  <strong>new</strong> <a href="../../../../../../test/net/sourceforge/pmd/testframework/TestDescriptor.html">TestDescriptor</a>(TEST6, <span class="string">"6, Initialize with a specific String"</span>, 1, rule),
+<a name="32" href="#32">32</a>                  <strong>new</strong> <a href="../../../../../../test/net/sourceforge/pmd/testframework/TestDescriptor.html">TestDescriptor</a>(TEST7, <span class="string">"7, appends inside if statements"</span>, 0, rule),
+<a name="33" href="#33">33</a>                  <strong>new</strong> <a href="../../../../../../test/net/sourceforge/pmd/testframework/TestDescriptor.html">TestDescriptor</a>(TEST8, <span class="string">"8, Field level variable"</span>, 0, rule),
+<a name="34" href="#34">34</a>                  <strong>new</strong> <a href="../../../../../../test/net/sourceforge/pmd/testframework/TestDescriptor.html">TestDescriptor</a>(TEST10, <span class="string">"10, Appending non-literals"</span>, 0, rule),
+<a name="35" href="#35">35</a>                  <strong>new</strong> <a href="../../../../../../test/net/sourceforge/pmd/testframework/TestDescriptor.html">TestDescriptor</a>(TEST11, <span class="string">"11, Initialized to null"</span>, 0, rule),
+<a name="36" href="#36">36</a>                  <strong>new</strong> <a href="../../../../../../test/net/sourceforge/pmd/testframework/TestDescriptor.html">TestDescriptor</a>(TEST12, <span class="string">"12, Passed in as parameter"</span>, 0, rule),
+<a name="37" href="#37">37</a>                  <strong>new</strong> <a href="../../../../../../test/net/sourceforge/pmd/testframework/TestDescriptor.html">TestDescriptor</a>(TEST14, <span class="string">"14, Compound append, presized just fine"</span>, 0, rule),
+<a name="38" href="#38">38</a>                  <strong>new</strong> <a href="../../../../../../test/net/sourceforge/pmd/testframework/TestDescriptor.html">TestDescriptor</a>(TEST16, <span class="string">"16, Append int, properly presized"</span>, 0, rule),
+<a name="39" href="#39">39</a>                  <strong>new</strong> <a href="../../../../../../test/net/sourceforge/pmd/testframework/TestDescriptor.html">TestDescriptor</a>(TEST18, <span class="string">"18, Append char, properly presized"</span>, 0, rule),
+<a name="40" href="#40">40</a>                  <strong>new</strong> <a href="../../../../../../test/net/sourceforge/pmd/testframework/TestDescriptor.html">TestDescriptor</a>(TEST22, <span class="string">"22, appends inside if/else if/else statements"</span>, 0, rule),
+<a name="41" href="#41">41</a>                  <strong>new</strong> <a href="../../../../../../test/net/sourceforge/pmd/testframework/TestDescriptor.html">TestDescriptor</a>(TEST23, <span class="string">"23, appends inside if/else if/else statements"</span>, 0, rule),
+<a name="42" href="#42">42</a>                  <strong>new</strong> <a href="../../../../../../test/net/sourceforge/pmd/testframework/TestDescriptor.html">TestDescriptor</a>(TEST24, <span class="string">"24, appends inside if/else if/else statements"</span>, 1, rule),
+<a name="43" href="#43">43</a>                  <strong>new</strong> <a href="../../../../../../test/net/sourceforge/pmd/testframework/TestDescriptor.html">TestDescriptor</a>(TEST25, <span class="string">"25, Compound ifs"</span>, 0, rule),
+<a name="44" href="#44">44</a>                  <strong>new</strong> <a href="../../../../../../test/net/sourceforge/pmd/testframework/TestDescriptor.html">TestDescriptor</a>(TEST27, <span class="string">"27, Switch statement doesn't exceed 16 characters"</span>, 0, rule),
+<a name="45" href="#45">45</a>                  <strong>new</strong> <a href="../../../../../../test/net/sourceforge/pmd/testframework/TestDescriptor.html">TestDescriptor</a>(TEST29, <span class="string">"29, Appending from a cast"</span>, 0, rule),
+<a name="46" href="#46">46</a>                  <strong>new</strong> <a href="../../../../../../test/net/sourceforge/pmd/testframework/TestDescriptor.html">TestDescriptor</a>(TEST30, <span class="string">"30, Appending chars"</span>, 0, rule),
+<a name="47" href="#47">47</a>                  <strong>new</strong> <a href="../../../../../../test/net/sourceforge/pmd/testframework/TestDescriptor.html">TestDescriptor</a>(TEST31, <span class="string">"31, Appending from a cast in ifs"</span>, 0, rule),
+<a name="48" href="#48">48</a>                  <strong>new</strong> <a href="../../../../../../test/net/sourceforge/pmd/testframework/TestDescriptor.html">TestDescriptor</a>(TEST32, <span class="string">"32, Constructor from math"</span>, 0, rule),
+<a name="49" href="#49">49</a>         });
+<a name="50" href="#50">50</a>      
+<a name="51" href="#51">51</a>         <em class="comment">// Then run the failure tests</em>
+<a name="52" href="#52">52</a>         runTests(<strong>new</strong> <a href="../../../../../../test/net/sourceforge/pmd/testframework/TestDescriptor.html">TestDescriptor</a>[] {
+<a name="53" href="#53">53</a>                 <strong>new</strong> <a href="../../../../../../test/net/sourceforge/pmd/testframework/TestDescriptor.html">TestDescriptor</a>(TEST2_FAIL, <span class="string">"2, StringBuffer not allocated with enough space"</span>, 1, rule),
+<a name="54" href="#54">54</a>                 <strong>new</strong> <a href="../../../../../../test/net/sourceforge/pmd/testframework/TestDescriptor.html">TestDescriptor</a>(TEST9_FAIL, <span class="string">"9, Field level variable"</span>, 1, rule),
+<a name="55" href="#55">55</a>                 <strong>new</strong> <a href="../../../../../../test/net/sourceforge/pmd/testframework/TestDescriptor.html">TestDescriptor</a>(TEST13_FAIL, <span class="string">"13, compound append"</span>, 1, rule),
+<a name="56" href="#56">56</a>                 <strong>new</strong> <a href="../../../../../../test/net/sourceforge/pmd/testframework/TestDescriptor.html">TestDescriptor</a>(TEST15_FAIL, <span class="string">"15, Append int, incorrect presize"</span>, 1, rule),
+<a name="57" href="#57">57</a>                 <strong>new</strong> <a href="../../../../../../test/net/sourceforge/pmd/testframework/TestDescriptor.html">TestDescriptor</a>(TEST17_FAIL, <span class="string">"17, Append char, incorrect presize"</span>, 1, rule),
+<a name="58" href="#58">58</a>                 <strong>new</strong> <a href="../../../../../../test/net/sourceforge/pmd/testframework/TestDescriptor.html">TestDescriptor</a>(TEST19_FAIL, <span class="string">"19, String concatenation, incorrect presize"</span>, 1, rule),
+<a name="59" href="#59">59</a>                 <strong>new</strong> <a href="../../../../../../test/net/sourceforge/pmd/testframework/TestDescriptor.html">TestDescriptor</a>(TEST20_FAIL, <span class="string">"20, String concatenation with non-literal, incorrect presize"</span>, 1, rule),
+<a name="60" href="#60">60</a>                 <strong>new</strong> <a href="../../../../../../test/net/sourceforge/pmd/testframework/TestDescriptor.html">TestDescriptor</a>(TEST21_FAIL, <span class="string">"21, Incorrectly presized twice"</span>, 2, rule),
+<a name="61" href="#61">61</a>                 <strong>new</strong> <a href="../../../../../../test/net/sourceforge/pmd/testframework/TestDescriptor.html">TestDescriptor</a>(TEST26_FAIL, <span class="string">"26, Compound if, pushed over the edge"</span>, 1, rule),
+<a name="62" href="#62">62</a>                 <strong>new</strong> <a href="../../../../../../test/net/sourceforge/pmd/testframework/TestDescriptor.html">TestDescriptor</a>(TEST28_FAIL, <span class="string">"28, Compound if, pushed over the edge"</span>, 1, rule),
+<a name="63" href="#63">63</a>         });
+<a name="64" href="#64">64</a>      }
+<a name="65" href="#65">65</a>  
+<a name="66" href="#66">66</a>      <strong>private</strong> <strong>static</strong> <strong>final</strong> String TEST1 =
+<a name="67" href="#67">67</a>          <span class="string">"public class Foo {"</span> + PMD.EOL +
+<a name="68" href="#68">68</a>          <span class="string">"   private static org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(Foo.class);"</span> + PMD.EOL +
+<a name="69" href="#69">69</a>          <span class="string">"   public void bar() {"</span> + PMD.EOL +
+<a name="70" href="#70">70</a>          <span class="string">"       StringBuffer sb = new StringBuffer(16);"</span> + PMD.EOL +
+<a name="71" href="#71">71</a>          <span class="string">"       sb.append(\&quot;foo\&quot;);"</span> + PMD.EOL +
+<a name="72" href="#72">72</a>          <span class="string">" }"</span> + PMD.EOL +
+<a name="73" href="#73">73</a>          <span class="string">"}"</span>;
+<a name="74" href="#74">74</a>  
+<a name="75" href="#75">75</a>      <strong>private</strong> <strong>static</strong> <strong>final</strong> String TEST2_FAIL =
+<a name="76" href="#76">76</a>          <span class="string">"public class Foo {"</span> + PMD.EOL +
+<a name="77" href="#77">77</a>          <span class="string">" public void bar() {"</span> + PMD.EOL +
+<a name="78" href="#78">78</a>          <span class="string">"  StringBuffer sb = new StringBuffer();"</span> + PMD.EOL +
+<a name="79" href="#79">79</a>          <span class="string">"  sb.append(\&quot;Hello\&quot;);"</span> + PMD.EOL +
+<a name="80" href="#80">80</a>          <span class="string">"  sb.append(\&quot;World\&quot;);"</span> + PMD.EOL +
+<a name="81" href="#81">81</a>          <span class="string">"  sb.append(\&quot;How are you today world\&quot;);"</span> + PMD.EOL +
+<a name="82" href="#82">82</a>          <span class="string">" }"</span> + PMD.EOL +
+<a name="83" href="#83">83</a>          <span class="string">"}"</span>;
+<a name="84" href="#84">84</a>      
+<a name="85" href="#85">85</a>  
+<a name="86" href="#86">86</a>      <strong>private</strong> <strong>static</strong> <strong>final</strong> String TEST3 =
+<a name="87" href="#87">87</a>          <span class="string">"public class Foo {"</span> + PMD.EOL +
+<a name="88" href="#88">88</a>          <span class="string">" public void bar(List l) {"</span> + PMD.EOL +
+<a name="89" href="#89">89</a>          <span class="string">"  StringBuffer sb = new StringBuffer(l.size());"</span> + PMD.EOL +
+<a name="90" href="#90">90</a>          <span class="string">"  sb.append(\&quot;Hello\&quot;);"</span> + PMD.EOL +
+<a name="91" href="#91">91</a>          <span class="string">"  sb.append(\&quot;World\&quot;);"</span> + PMD.EOL +
+<a name="92" href="#92">92</a>          <span class="string">"  sb.append(\&quot;How are you today world\&quot;);"</span> + PMD.EOL +
+<a name="93" href="#93">93</a>          <span class="string">" }"</span> + PMD.EOL +
+<a name="94" href="#94">94</a>          <span class="string">"}"</span>;
+<a name="95" href="#95">95</a>      
+<a name="96" href="#96">96</a>      <strong>private</strong> <strong>static</strong> <strong>final</strong> String TEST4 =
+<a name="97" href="#97">97</a>          <span class="string">"public class Foo {"</span> + PMD.EOL +
+<a name="98" href="#98">98</a>          <span class="string">" public void bar(List l) {"</span> + PMD.EOL +
+<a name="99" href="#99">99</a>          <span class="string">"  int x = 3;"</span> + PMD.EOL +
+<a name="100" href="#100">100</a>         <span class="string">"  StringBuffer sb = new StringBuffer(x);"</span> + PMD.EOL +
+<a name="101" href="#101">101</a>         <span class="string">"  sb.append(\&quot;Hello\&quot;);"</span> + PMD.EOL +
+<a name="102" href="#102">102</a>         <span class="string">"  sb.append(\&quot;World\&quot;);"</span> + PMD.EOL +
+<a name="103" href="#103">103</a>         <span class="string">"  sb.append(\&quot;How are you today world\&quot;);"</span> + PMD.EOL +
+<a name="104" href="#104">104</a>         <span class="string">" }"</span> + PMD.EOL +
+<a name="105" href="#105">105</a>         <span class="string">"}"</span>;
+<a name="106" href="#106">106</a> 
+<a name="107" href="#107">107</a>     <strong>private</strong> <strong>static</strong> <strong>final</strong> String TEST5 =
+<a name="108" href="#108">108</a>         <span class="string">"public class Foo {"</span> + PMD.EOL +
+<a name="109" href="#109">109</a>         <span class="string">" public void bar(List l) {"</span> + PMD.EOL +
+<a name="110" href="#110">110</a>         <span class="string">"  int x = 3;"</span> + PMD.EOL +
+<a name="111" href="#111">111</a>         <span class="string">"  StringBuffer sb = new StringBuffer(5);"</span> + PMD.EOL +
+<a name="112" href="#112">112</a>         <span class="string">"  sb.append(\&quot;Hello\&quot;);"</span> + PMD.EOL +
+<a name="113" href="#113">113</a>         <span class="string">"  sb = new StringBuffer(23);"</span> + PMD.EOL +
+<a name="114" href="#114">114</a>         <span class="string">"  sb.append(\&quot;How are you today world\&quot;);"</span> + PMD.EOL +
+<a name="115" href="#115">115</a>         <span class="string">" }"</span> + PMD.EOL +
+<a name="116" href="#116">116</a>         <span class="string">"}"</span>;
+<a name="117" href="#117">117</a> 
+<a name="118" href="#118">118</a>     <strong>private</strong> <strong>static</strong> <strong>final</strong> String TEST6 =
+<a name="119" href="#119">119</a>         <span class="string">"public class Foo {"</span> + PMD.EOL +
+<a name="120" href="#120">120</a>         <span class="string">" public void bar(List l) {"</span> + PMD.EOL +
+<a name="121" href="#121">121</a>         <span class="string">"  int x = 3;"</span> + PMD.EOL +
+<a name="122" href="#122">122</a>         <span class="string">"  StringBuffer sb = new StringBuffer(\&quot;Initialize With A String\&quot;);"</span> + PMD.EOL +
+<a name="123" href="#123">123</a>         <span class="string">"  sb.append(\&quot;Hello\&quot;);"</span> + PMD.EOL +
+<a name="124" href="#124">124</a>         <span class="string">"  sb.append(\&quot;How are you today world\&quot;);"</span> + PMD.EOL +
+<a name="125" href="#125">125</a>         <span class="string">" }"</span> + PMD.EOL +
+<a name="126" href="#126">126</a>         <span class="string">"}"</span>;
+<a name="127" href="#127">127</a> 
+<a name="128" href="#128">128</a>     <strong>private</strong> <strong>static</strong> <strong>final</strong> String TEST7 =
+<a name="129" href="#129">129</a>         <span class="string">"public class Foo {"</span> + PMD.EOL +
+<a name="130" href="#130">130</a>         <span class="string">"    public void bar(List l) {"</span> + PMD.EOL +
+<a name="131" href="#131">131</a>         <span class="string">"        StringBuffer sb = new StringBuffer();"</span> + PMD.EOL +
+<a name="132" href="#132">132</a>         <span class="string">"        if(true){"</span> + PMD.EOL +
+<a name="133" href="#133">133</a>         <span class="string">"            sb.append(\&quot;1234567890\&quot;);"</span> + PMD.EOL +
+<a name="134" href="#134">134</a>         <span class="string">"        } else {"</span> + PMD.EOL +
+<a name="135" href="#135">135</a>         <span class="string">"            sb.append(\&quot;123456789\&quot;);"</span> + PMD.EOL +
+<a name="136" href="#136">136</a>         <span class="string">"        }"</span> + PMD.EOL +
+<a name="137" href="#137">137</a>         <span class="string">"    }"</span> + PMD.EOL +
+<a name="138" href="#138">138</a>         <span class="string">"}"</span>;
+<a name="139" href="#139">139</a> 
+<a name="140" href="#140">140</a>     <strong>private</strong> <strong>static</strong> <strong>final</strong> String TEST8 =
+<a name="141" href="#141">141</a>         <span class="string">"public class Foo {"</span> + PMD.EOL +
+<a name="142" href="#142">142</a>         <span class="string">"  StringBuffer sb = new StringBuffer(200);"</span> + PMD.EOL +
+<a name="143" href="#143">143</a>         <span class="string">" public void bar(List l) {"</span> + PMD.EOL +
+<a name="144" href="#144">144</a>         <span class="string">"  sb.append(\&quot;Hello\&quot;);"</span> + PMD.EOL +
+<a name="145" href="#145">145</a>         <span class="string">"  sb.append(\&quot;How are you today world\&quot;);"</span> + PMD.EOL +
+<a name="146" href="#146">146</a>         <span class="string">" }"</span> + PMD.EOL +
+<a name="147" href="#147">147</a>         <span class="string">"}"</span>;
+<a name="148" href="#148">148</a> 
+<a name="149" href="#149">149</a>     <strong>private</strong> <strong>static</strong> <strong>final</strong> String TEST9_FAIL =
+<a name="150" href="#150">150</a>         <span class="string">"public class Foo {"</span> + PMD.EOL +
+<a name="151" href="#151">151</a>         <span class="string">"  StringBuffer sb = new StringBuffer();"</span> + PMD.EOL +
+<a name="152" href="#152">152</a>         <span class="string">" public void bar(List l) {"</span> + PMD.EOL +
+<a name="153" href="#153">153</a>         <span class="string">"  sb.append(\&quot;Hello\&quot;);"</span> + PMD.EOL +
+<a name="154" href="#154">154</a>         <span class="string">"  sb.append(\&quot;How are you today world\&quot;);"</span> + PMD.EOL +
+<a name="155" href="#155">155</a>         <span class="string">" }"</span> + PMD.EOL +
+<a name="156" href="#156">156</a>         <span class="string">"}"</span>;
+<a name="157" href="#157">157</a>     
+<a name="158" href="#158">158</a>     <strong>private</strong> <strong>static</strong> <strong>final</strong> String TEST10 =
+<a name="159" href="#159">159</a>         <span class="string">"public class Foo {"</span> + PMD.EOL +
+<a name="160" href="#160">160</a>         <span class="string">" public void bar(List l) {"</span> + PMD.EOL +
+<a name="161" href="#161">161</a>         <span class="string">"  StringBuffer sb = new StringBuffer(0);"</span> + PMD.EOL +
+<a name="162" href="#162">162</a>         <span class="string">"  sb.append(l.get(2));"</span> + PMD.EOL +
+<a name="163" href="#163">163</a>         <span class="string">"  sb.append(l.toString());"</span> + PMD.EOL +
+<a name="164" href="#164">164</a>         <span class="string">" }"</span> + PMD.EOL +
+<a name="165" href="#165">165</a>         <span class="string">"}"</span>;
+<a name="166" href="#166">166</a>     
+<a name="167" href="#167">167</a>     <strong>private</strong> <strong>static</strong> <strong>final</strong> String TEST11 =
+<a name="168" href="#168">168</a>         <span class="string">"public class Foo {"</span> + PMD.EOL +
+<a name="169" href="#169">169</a>         <span class="string">" public void bar(List l) {"</span> + PMD.EOL +
+<a name="170" href="#170">170</a>         <span class="string">"  StringBuffer sb = null;"</span> + PMD.EOL +
+<a name="171" href="#171">171</a>         <span class="string">"  sb = new StringBuffer(20);"</span> + PMD.EOL +
+<a name="172" href="#172">172</a>         <span class="string">"  sb.append(l.toString());"</span> + PMD.EOL +
+<a name="173" href="#173">173</a>         <span class="string">" }"</span> + PMD.EOL +
+<a name="174" href="#174">174</a>         <span class="string">"}"</span>;
+<a name="175" href="#175">175</a> 
+<a name="176" href="#176">176</a>     
+<a name="177" href="#177">177</a>     <strong>private</strong> <strong>static</strong> <strong>final</strong> String TEST12 =
+<a name="178" href="#178">178</a>         <span class="string">"public class Foo {"</span> + PMD.EOL +
+<a name="179" href="#179">179</a>         <span class="string">" public void bar(StringBuffer param) {"</span> + PMD.EOL +
+<a name="180" href="#180">180</a>         <span class="string">"  param.append(\&quot;Append something\&quot;);"</span> + PMD.EOL +
+<a name="181" href="#181">181</a>         <span class="string">" }"</span> + PMD.EOL +
+<a name="182" href="#182">182</a>         <span class="string">"}"</span>;
+<a name="183" href="#183">183</a> 
+<a name="184" href="#184">184</a> 
+<a name="185" href="#185">185</a>     <strong>private</strong> <strong>static</strong> <strong>final</strong> String TEST13_FAIL =
+<a name="186" href="#186">186</a>         <span class="string">"public class Foo {"</span> + PMD.EOL +
+<a name="187" href="#187">187</a>         <span class="string">"   private static org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(Foo.class);"</span> + PMD.EOL +
+<a name="188" href="#188">188</a>         <span class="string">"   public void bar() {"</span> + PMD.EOL +
+<a name="189" href="#189">189</a>         <span class="string">"       StringBuffer sb = new StringBuffer();"</span> + PMD.EOL +
+<a name="190" href="#190">190</a>         <span class="string">"       sb.append(\&quot;foo\&quot;).append(\&quot;this will make it long\&quot;);"</span> + PMD.EOL +
+<a name="191" href="#191">191</a>         <span class="string">" }"</span> + PMD.EOL +
+<a name="192" href="#192">192</a>         <span class="string">"}"</span>;
+<a name="193" href="#193">193</a> 
+<a name="194" href="#194">194</a> 
+<a name="195" href="#195">195</a>     <strong>private</strong> <strong>static</strong> <strong>final</strong> String TEST14 =
+<a name="196" href="#196">196</a>         <span class="string">"public class Foo {"</span> + PMD.EOL +
+<a name="197" href="#197">197</a>         <span class="string">"   private static org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(Foo.class);"</span> + PMD.EOL +
+<a name="198" href="#198">198</a>         <span class="string">"   public void bar() {"</span> + PMD.EOL +
+<a name="199" href="#199">199</a>         <span class="string">"       StringBuffer sb = new StringBuffer(30);"</span> + PMD.EOL +
+<a name="200" href="#200">200</a>         <span class="string">"       sb.append(\&quot;foo\&quot;).append(\&quot;this is presized just right\&quot;);"</span> + PMD.EOL +
+<a name="201" href="#201">201</a>         <span class="string">" }"</span> + PMD.EOL +
+<a name="202" href="#202">202</a>         <span class="string">"}"</span>;
+<a name="203" href="#203">203</a> 
+<a name="204" href="#204">204</a>     <strong>private</strong> <strong>static</strong> <strong>final</strong> String TEST15_FAIL =
+<a name="205" href="#205">205</a>         <span class="string">"public class Foo {"</span> + PMD.EOL +
+<a name="206" href="#206">206</a>         <span class="string">"   private static org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(Foo.class);"</span> + PMD.EOL +
+<a name="207" href="#207">207</a>         <span class="string">"   public void bar() {"</span> + PMD.EOL +
+<a name="208" href="#208">208</a>         <span class="string">"       StringBuffer sb = new StringBuffer();"</span> + PMD.EOL +
+<a name="209" href="#209">209</a>         <span class="string">"       sb.append(12345678901234567890);"</span> + PMD.EOL +
+<a name="210" href="#210">210</a>         <span class="string">" }"</span> + PMD.EOL +
+<a name="211" href="#211">211</a>         <span class="string">"}"</span>;
+<a name="212" href="#212">212</a> 
+<a name="213" href="#213">213</a> 
+<a name="214" href="#214">214</a>     <strong>private</strong> <strong>static</strong> <strong>final</strong> String TEST16 =
+<a name="215" href="#215">215</a>         <span class="string">"public class Foo {"</span> + PMD.EOL +
+<a name="216" href="#216">216</a>         <span class="string">"   private static org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(Foo.class);"</span> + PMD.EOL +
+<a name="217" href="#217">217</a>         <span class="string">"   public void bar() {"</span> + PMD.EOL +
+<a name="218" href="#218">218</a>         <span class="string">"       StringBuffer sb = new StringBuffer();"</span> + PMD.EOL +
+<a name="219" href="#219">219</a>         <span class="string">"       sb.append(12345);"</span> + PMD.EOL +
+<a name="220" href="#220">220</a>         <span class="string">" }"</span> + PMD.EOL +
+<a name="221" href="#221">221</a>         <span class="string">"}"</span>;
+<a name="222" href="#222">222</a> 
+<a name="223" href="#223">223</a>     <strong>private</strong> <strong>static</strong> <strong>final</strong> String TEST17_FAIL =
+<a name="224" href="#224">224</a>         <span class="string">"public class Foo {"</span> + PMD.EOL +
+<a name="225" href="#225">225</a>         <span class="string">"   private static org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(Foo.class);"</span> + PMD.EOL +
+<a name="226" href="#226">226</a>         <span class="string">"   public void bar() {"</span> + PMD.EOL +
+<a name="227" href="#227">227</a>         <span class="string">"       StringBuffer sb = new StringBuffer(2);"</span> + PMD.EOL +
+<a name="228" href="#228">228</a>         <span class="string">"       sb.append('a');"</span> + PMD.EOL +
+<a name="229" href="#229">229</a>         <span class="string">"       sb.append('a');"</span> + PMD.EOL +
+<a name="230" href="#230">230</a>         <span class="string">"       sb.append('a');"</span> + PMD.EOL +
+<a name="231" href="#231">231</a>         <span class="string">" }"</span> + PMD.EOL +
+<a name="232" href="#232">232</a>         <span class="string">"}"</span>;
+<a name="233" href="#233">233</a> 
+<a name="234" href="#234">234</a> 
+<a name="235" href="#235">235</a>     <strong>private</strong> <strong>static</strong> <strong>final</strong> String TEST18 =
+<a name="236" href="#236">236</a>         <span class="string">"public class Foo {"</span> + PMD.EOL +
+<a name="237" href="#237">237</a>         <span class="string">"   private static org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(Foo.class);"</span> + PMD.EOL +
+<a name="238" href="#238">238</a>         <span class="string">"   public void bar() {"</span> + PMD.EOL +
+<a name="239" href="#239">239</a>         <span class="string">"       StringBuffer sb = new StringBuffer(3);"</span> + PMD.EOL +
+<a name="240" href="#240">240</a>         <span class="string">"       sb.append('a');"</span> + PMD.EOL +
+<a name="241" href="#241">241</a>         <span class="string">"       sb.append('a');"</span> + PMD.EOL +
+<a name="242" href="#242">242</a>         <span class="string">"       sb.append('a');"</span> + PMD.EOL +
+<a name="243" href="#243">243</a>         <span class="string">" }"</span> + PMD.EOL +
+<a name="244" href="#244">244</a>         <span class="string">"}"</span>;
+<a name="245" href="#245">245</a> 
+<a name="246" href="#246">246</a> 
+<a name="247" href="#247">247</a>     <strong>private</strong> <strong>static</strong> <strong>final</strong> String TEST19_FAIL =
+<a name="248" href="#248">248</a>         <span class="string">"public class Foo {"</span> + PMD.EOL +
+<a name="249" href="#249">249</a>         <span class="string">"   private static org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(Foo.class);"</span> + PMD.EOL +
+<a name="250" href="#250">250</a>         <span class="string">"   public void bar() {"</span> + PMD.EOL +
+<a name="251" href="#251">251</a>         <span class="string">"       StringBuffer sb = new StringBuffer();"</span> + PMD.EOL +
+<a name="252" href="#252">252</a>         <span class="string">"       sb.append(\&quot;This string\&quot; + \&quot; \&quot; + \&quot;isn't nice, but valid\&quot;);"</span> + PMD.EOL +
+<a name="253" href="#253">253</a>         <span class="string">" }"</span> + PMD.EOL +
+<a name="254" href="#254">254</a>         <span class="string">"}"</span>;
+<a name="255" href="#255">255</a> 
+<a name="256" href="#256">256</a>     <strong>private</strong> <strong>static</strong> <strong>final</strong> String TEST20_FAIL =
+<a name="257" href="#257">257</a>         <span class="string">"public class Foo {"</span> + PMD.EOL +
+<a name="258" href="#258">258</a>         <span class="string">"   private static org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(Foo.class);"</span> + PMD.EOL +
+<a name="259" href="#259">259</a>         <span class="string">"   public void bar(String x) {"</span> + PMD.EOL +
+<a name="260" href="#260">260</a>         <span class="string">"       StringBuffer sb = new StringBuffer();"</span> + PMD.EOL +
+<a name="261" href="#261">261</a>         <span class="string">"       sb.append(\&quot;This string\&quot; + x + \&quot;isn't nice, but valid\&quot;);"</span> + PMD.EOL +
+<a name="262" href="#262">262</a>         <span class="string">" }"</span> + PMD.EOL +
+<a name="263" href="#263">263</a>         <span class="string">"}"</span>;
+<a name="264" href="#264">264</a> 
+<a name="265" href="#265">265</a>     <strong>private</strong> <strong>static</strong> <strong>final</strong> String TEST21_FAIL =
+<a name="266" href="#266">266</a>         <span class="string">"public class Foo {"</span> + PMD.EOL +
+<a name="267" href="#267">267</a>         <span class="string">" public void bar(List l) {"</span> + PMD.EOL +
+<a name="268" href="#268">268</a>         <span class="string">"  int x = 3;"</span> + PMD.EOL +
+<a name="269" href="#269">269</a>         <span class="string">"  StringBuffer sb = new StringBuffer(2);"</span> + PMD.EOL +
+<a name="270" href="#270">270</a>         <span class="string">"  sb.append(\&quot;Hello\&quot;);"</span> + PMD.EOL +
+<a name="271" href="#271">271</a>         <span class="string">"  sb = new StringBuffer(5);"</span> + PMD.EOL +
+<a name="272" href="#272">272</a>         <span class="string">"  sb.append(\&quot;How are you today world\&quot;);"</span> + PMD.EOL +
+<a name="273" href="#273">273</a>         <span class="string">" }"</span> + PMD.EOL +
+<a name="274" href="#274">274</a>         <span class="string">"}"</span>;
+<a name="275" href="#275">275</a> 
+<a name="276" href="#276">276</a>     <strong>private</strong> <strong>static</strong> <strong>final</strong> String TEST22 =
+<a name="277" href="#277">277</a>         <span class="string">"public class Foo {"</span> + PMD.EOL +
+<a name="278" href="#278">278</a>         <span class="string">"    public void bar(List l) {"</span> + PMD.EOL +
+<a name="279" href="#279">279</a>         <span class="string">"        StringBuffer sb = new StringBuffer();"</span> + PMD.EOL +
+<a name="280" href="#280">280</a>         <span class="string">"        if(true){"</span> + PMD.EOL +
+<a name="281" href="#281">281</a>         <span class="string">"            sb.append(\&quot;1234567890\&quot;);"</span> + PMD.EOL +
+<a name="282" href="#282">282</a>         <span class="string">"        } else if( l.size() == 5){"</span> + PMD.EOL +
+<a name="283" href="#283">283</a>         <span class="string">"            sb.append(\&quot;1234567890\&quot;);"</span> + PMD.EOL +
+<a name="284" href="#284">284</a>         <span class="string">"        } else {"</span> + PMD.EOL +
+<a name="285" href="#285">285</a>         <span class="string">"            sb.append(\&quot;1234567890\&quot;);"</span> + PMD.EOL +
+<a name="286" href="#286">286</a>         <span class="string">"        }"</span> + PMD.EOL +
+<a name="287" href="#287">287</a>         <span class="string">"    }"</span> + PMD.EOL +
+<a name="288" href="#288">288</a>         <span class="string">"}"</span>;
+<a name="289" href="#289">289</a> 
+<a name="290" href="#290">290</a>     <strong>private</strong> <strong>static</strong> <strong>final</strong> String TEST23 =
+<a name="291" href="#291">291</a>         <span class="string">"public class Foo {"</span> + PMD.EOL +
+<a name="292" href="#292">292</a>         <span class="string">"    public void bar(List l) {"</span> + PMD.EOL +
+<a name="293" href="#293">293</a>         <span class="string">"        StringBuffer sb = new StringBuffer();"</span> + PMD.EOL +
+<a name="294" href="#294">294</a>         <span class="string">"        if(true){"</span> + PMD.EOL +
+<a name="295" href="#295">295</a>         <span class="string">"            sb.append(\&quot;12345\&quot;);"</span> + PMD.EOL +
+<a name="296" href="#296">296</a>         <span class="string">"        } else if( l.size() == 5){"</span> + PMD.EOL +
+<a name="297" href="#297">297</a>         <span class="string">"            sb.append(\&quot;12345\&quot;);"</span> + PMD.EOL +
+<a name="298" href="#298">298</a>         <span class="string">"        } else {"</span> + PMD.EOL +
+<a name="299" href="#299">299</a>         <span class="string">"            sb.append(\&quot;12345\&quot;);"</span> + PMD.EOL +
+<a name="300" href="#300">300</a>         <span class="string">"        }"</span> + PMD.EOL +
+<a name="301" href="#301">301</a>         <span class="string">"        if(true){"</span> + PMD.EOL +
+<a name="302" href="#302">302</a>         <span class="string">"            sb.append(\&quot;12345\&quot;);"</span> + PMD.EOL +
+<a name="303" href="#303">303</a>         <span class="string">"        } else if( l.size() == 5){"</span> + PMD.EOL +
+<a name="304" href="#304">304</a>         <span class="string">"            sb.append(\&quot;12345\&quot;);"</span> + PMD.EOL +
+<a name="305" href="#305">305</a>         <span class="string">"        } else {"</span> + PMD.EOL +
+<a name="306" href="#306">306</a>         <span class="string">"            sb.append(\&quot;12345\&quot;);"</span> + PMD.EOL +
+<a name="307" href="#307">307</a>         <span class="string">"        }"</span> + PMD.EOL +
+<a name="308" href="#308">308</a>         <span class="string">"    }"</span> + PMD.EOL +
+<a name="309" href="#309">309</a>         <span class="string">"}"</span>;
+<a name="310" href="#310">310</a> 
+<a name="311" href="#311">311</a> 
+<a name="312" href="#312">312</a>     <strong>private</strong> <strong>static</strong> <strong>final</strong> String TEST24 =
+<a name="313" href="#313">313</a>         <span class="string">"public class Foo {"</span> + PMD.EOL +
+<a name="314" href="#314">314</a>         <span class="string">"    public void bar(List l) {"</span> + PMD.EOL +
+<a name="315" href="#315">315</a>         <span class="string">"        StringBuffer sb = new StringBuffer();"</span> + PMD.EOL +
+<a name="316" href="#316">316</a>         <span class="string">"        if(true){"</span> + PMD.EOL +
+<a name="317" href="#317">317</a>         <span class="string">"            sb.append(\&quot;This should use\&quot;);"</span> + PMD.EOL +
+<a name="318" href="#318">318</a>         <span class="string">"        } else if( l.size() == 5){"</span> + PMD.EOL +
+<a name="319" href="#319">319</a>         <span class="string">"            sb.append(\&quot;The longest if\&quot;);"</span> + PMD.EOL +
+<a name="320" href="#320">320</a>         <span class="string">"        } else {"</span> + PMD.EOL +
+<a name="321" href="#321">321</a>         <span class="string">"            sb.append(\&quot;statement for its violation, which is this one\&quot;);"</span> + PMD.EOL +
+<a name="322" href="#322">322</a>         <span class="string">"        }"</span> + PMD.EOL +
+<a name="323" href="#323">323</a>         <span class="string">"    }"</span> + PMD.EOL +
+<a name="324" href="#324">324</a>         <span class="string">"}"</span>;
+<a name="325" href="#325">325</a> 
+<a name="326" href="#326">326</a>     <strong>private</strong> <strong>static</strong> <strong>final</strong> String TEST25 =
+<a name="327" href="#327">327</a>         <span class="string">"public class Foo {"</span> + PMD.EOL +
+<a name="328" href="#328">328</a>         <span class="string">"    public void bar(List l) {"</span> + PMD.EOL +
+<a name="329" href="#329">329</a>         <span class="string">"        StringBuffer sb = new StringBuffer();"</span> + PMD.EOL +
+<a name="330" href="#330">330</a>         <span class="string">"        if(true){"</span> + PMD.EOL +
+<a name="331" href="#331">331</a>         <span class="string">"           if(true){"</span> + PMD.EOL +
+<a name="332" href="#332">332</a>         <span class="string">"                sb.append(\&quot;More\&quot;);"</span> + PMD.EOL +
+<a name="333" href="#333">333</a>         <span class="string">"           } else if( l.size() == 5){"</span> + PMD.EOL +
+<a name="334" href="#334">334</a>         <span class="string">"                sb.append(\&quot;Compound\&quot;);"</span> + PMD.EOL +
+<a name="335" href="#335">335</a>         <span class="string">"           } else {"</span> + PMD.EOL +
+<a name="336" href="#336">336</a>         <span class="string">"               sb.append(\&quot;If\&quot;);"</span> + PMD.EOL +
+<a name="337" href="#337">337</a>         <span class="string">"           }"</span> + PMD.EOL +
+<a name="338" href="#338">338</a>         <span class="string">"       } else {"</span> + PMD.EOL +
+<a name="339" href="#339">339</a>         <span class="string">"           sb.append(\&quot;A compound if\&quot;);"</span> + PMD.EOL +
+<a name="340" href="#340">340</a>         <span class="string">"       } "</span> + PMD.EOL +
+<a name="341" href="#341">341</a>         <span class="string">"    }"</span> + PMD.EOL +
+<a name="342" href="#342">342</a>         <span class="string">"}"</span>;
+<a name="343" href="#343">343</a> 
+<a name="344" href="#344">344</a>     <strong>private</strong> <strong>static</strong> <strong>final</strong> String TEST26_FAIL =
+<a name="345" href="#345">345</a>         <span class="string">"public class Foo {"</span> + PMD.EOL +
+<a name="346" href="#346">346</a>         <span class="string">"    public void bar(List l) {"</span> + PMD.EOL +
+<a name="347" href="#347">347</a>         <span class="string">"        StringBuffer sb = new StringBuffer();"</span> + PMD.EOL +
+<a name="348" href="#348">348</a>         <span class="string">"        if(true){"</span> + PMD.EOL +
+<a name="349" href="#349">349</a>         <span class="string">"           if(true){"</span> + PMD.EOL +
+<a name="350" href="#350">350</a>         <span class="string">"                sb.append(\&quot;More\&quot;);"</span> + PMD.EOL +
+<a name="351" href="#351">351</a>         <span class="string">"           } else if( l.size() == 5){"</span> + PMD.EOL +
+<a name="352" href="#352">352</a>         <span class="string">"                sb.append(\&quot;Compound\&quot;);"</span> + PMD.EOL +
+<a name="353" href="#353">353</a>         <span class="string">"           } else {"</span> + PMD.EOL +
+<a name="354" href="#354">354</a>         <span class="string">"               sb.append(\&quot;If\&quot;);"</span> + PMD.EOL +
+<a name="355" href="#355">355</a>         <span class="string">"           }"</span> + PMD.EOL +
+<a name="356" href="#356">356</a>         <span class="string">"       } else {"</span> + PMD.EOL +
+<a name="357" href="#357">357</a>         <span class="string">"           sb.append(\&quot;A compound if\&quot;);"</span> + PMD.EOL +
+<a name="358" href="#358">358</a>         <span class="string">"       } "</span> + PMD.EOL +
+<a name="359" href="#359">359</a>         <span class="string">"       sb.append(\&quot;Push\&quot;);"</span> + PMD.EOL +
+<a name="360" href="#360">360</a>         <span class="string">"    }"</span> + PMD.EOL +
+<a name="361" href="#361">361</a>         <span class="string">"}"</span>;
+<a name="362" href="#362">362</a> 
+<a name="363" href="#363">363</a>     <strong>private</strong> <strong>static</strong> <strong>final</strong> String TEST27 =
+<a name="364" href="#364">364</a>         <span class="string">"public class Foo {"</span> + PMD.EOL +
+<a name="365" href="#365">365</a>         <span class="string">" public void bar(String str) {"</span> + PMD.EOL +
+<a name="366" href="#366">366</a>         <span class="string">"  StringBuffer sb = new StringBuffer();"</span> + PMD.EOL +
+<a name="367" href="#367">367</a>         <span class="string">"    switch(str.charAt(0)){"</span> + PMD.EOL +
+<a name="368" href="#368">368</a>         <span class="string">"        case 'a':"</span> + PMD.EOL +
+<a name="369" href="#369">369</a>         <span class="string">"            sb.append(\&quot;Switch block\&quot;);"</span> + PMD.EOL +
+<a name="370" href="#370">370</a>         <span class="string">"        break;"</span> + PMD.EOL +
+<a name="371" href="#371">371</a>         <span class="string">"        case 'b':"</span> + PMD.EOL +
+<a name="372" href="#372">372</a>         <span class="string">"            sb.append(\&quot;Doesn't exceed\&quot;);"</span> + PMD.EOL +
+<a name="373" href="#373">373</a>         <span class="string">"        break;"</span> + PMD.EOL +
+<a name="374" href="#374">374</a>         <span class="string">"        default:"</span> + PMD.EOL +
+<a name="375" href="#375">375</a>         <span class="string">"            sb.append(\&quot;16 chars\&quot;);"</span> + PMD.EOL +
+<a name="376" href="#376">376</a>         <span class="string">"    }"</span> + PMD.EOL +
+<a name="377" href="#377">377</a>         <span class="string">" }"</span> + PMD.EOL +
+<a name="378" href="#378">378</a>         <span class="string">"}"</span>;
+<a name="379" href="#379">379</a> 
+<a name="380" href="#380">380</a>     <strong>private</strong> <strong>static</strong> <strong>final</strong> String TEST28_FAIL =
+<a name="381" href="#381">381</a>         <span class="string">"public class Foo {"</span> + PMD.EOL +
+<a name="382" href="#382">382</a>         <span class="string">" public void bar(String str) {"</span> + PMD.EOL +
+<a name="383" href="#383">383</a>         <span class="string">"  StringBuffer sb = new StringBuffer();"</span> + PMD.EOL +
+<a name="384" href="#384">384</a>         <span class="string">"    switch(str.charAt(0)){"</span> + PMD.EOL +
+<a name="385" href="#385">385</a>         <span class="string">"        case 'a':"</span> + PMD.EOL +
+<a name="386" href="#386">386</a>         <span class="string">"            sb.append(\&quot;Switch block\&quot;);"</span> + PMD.EOL +
+<a name="387" href="#387">387</a>         <span class="string">"        break;"</span> + PMD.EOL +
+<a name="388" href="#388">388</a>         <span class="string">"        default:"</span> + PMD.EOL +
+<a name="389" href="#389">389</a>         <span class="string">"            sb.append(\&quot;The default block exceeds 16 characters and will fail\&quot;);"</span> + PMD.EOL +
+<a name="390" href="#390">390</a>         <span class="string">"    }"</span> + PMD.EOL +
+<a name="391" href="#391">391</a>         <span class="string">" }"</span> + PMD.EOL +
+<a name="392" href="#392">392</a>         <span class="string">"}"</span>;    
+<a name="393" href="#393">393</a>     
+<a name="394" href="#394">394</a>     <strong>private</strong> <strong>static</strong> <strong>final</strong> String TEST29 =
+<a name="395" href="#395">395</a>             <span class="string">"public class Foo {"</span> + PMD.EOL +
+<a name="396" href="#396">396</a>             <span class="string">" public void bar() {"</span> + PMD.EOL +
+<a name="397" href="#397">397</a>             <span class="string">"  StringBuffer sb = new StringBuffer(1);"</span> + PMD.EOL +
+<a name="398" href="#398">398</a>             <span class="string">"   sb.append((char) 0x0041);"</span> + PMD.EOL +
+<a name="399" href="#399">399</a>             <span class="string">" }"</span> + PMD.EOL +
+<a name="400" href="#400">400</a>             <span class="string">"}"</span>;
+<a name="401" href="#401">401</a>     
+<a name="402" href="#402">402</a>     <strong>private</strong> <strong>static</strong> <strong>final</strong> String TEST30 =
+<a name="403" href="#403">403</a>             <span class="string">"public class Foo {"</span> + PMD.EOL +
+<a name="404" href="#404">404</a>             <span class="string">" public void bar(char longnamedchar) {"</span> + PMD.EOL +
+<a name="405" href="#405">405</a>             <span class="string">"  StringBuffer sb = new StringBuffer(1);"</span> + PMD.EOL +
+<a name="406" href="#406">406</a>             <span class="string">"   sb.append(longnamedchar);"</span> + PMD.EOL +
+<a name="407" href="#407">407</a>             <span class="string">" }"</span> + PMD.EOL +
+<a name="408" href="#408">408</a>             <span class="string">"}"</span>;
+<a name="409" href="#409">409</a>     
+<a name="410" href="#410">410</a>     <strong>private</strong> <strong>static</strong> <strong>final</strong> String TEST31 =
+<a name="411" href="#411">411</a>             <span class="string">"public class Foo {"</span> + PMD.EOL +
+<a name="412" href="#412">412</a>             <span class="string">" public void bar(int i) {"</span> + PMD.EOL +
+<a name="413" href="#413">413</a>             <span class="string">"  StringBuffer sb = new StringBuffer(1);"</span> + PMD.EOL +
+<a name="414" href="#414">414</a>             <span class="string">"   if(i == 1){"</span> + PMD.EOL +
+<a name="415" href="#415">415</a>             <span class="string">"       sb.append((char) 0x0041);"</span> + PMD.EOL +
+<a name="416" href="#416">416</a>             <span class="string">"   } else if(i == 2){"</span> + PMD.EOL +
+<a name="417" href="#417">417</a>             <span class="string">"       sb.append((char) 0x0041);"</span> + PMD.EOL +
+<a name="418" href="#418">418</a>             <span class="string">"   } else if(i == 19){"</span> + PMD.EOL +
+<a name="419" href="#419">419</a>             <span class="string">"       sb.append((char) 0x0041);"</span> + PMD.EOL +
+<a name="420" href="#420">420</a>             <span class="string">"   } else {"</span> + PMD.EOL +
+<a name="421" href="#421">421</a>             <span class="string">"       sb.append((char) 0x0041);"</span> + PMD.EOL +
+<a name="422" href="#422">422</a>             <span class="string">"   } "</span> + PMD.EOL +
+<a name="423" href="#423">423</a>             <span class="string">" }"</span> + PMD.EOL +
+<a name="424" href="#424">424</a>             <span class="string">"}"</span>;
+<a name="425" href="#425">425</a>     
+<a name="426" href="#426">426</a>     
+<a name="427" href="#427">427</a>     <strong>private</strong> <strong>static</strong> <strong>final</strong> String TEST32 =
+<a name="428" href="#428">428</a>             <span class="string">"public class Foo {"</span> + PMD.EOL +
+<a name="429" href="#429">429</a>             <span class="string">" public void bar(char longnamedchar) {"</span> + PMD.EOL +
+<a name="430" href="#430">430</a>             <span class="string">"  StringBuffer sb = new StringBuffer(132+42);"</span> + PMD.EOL +
+<a name="431" href="#431">431</a>             <span class="string">"   sb.append(\&quot;Some string. At this point I'm not doing anything to count characters, assuming developer knows what they're doing\&quot;);"</span> + PMD.EOL +
+<a name="432" href="#432">432</a>             <span class="string">"  StringBuffer sb1 = new StringBuffer(132*42);"</span> + PMD.EOL +
+<a name="433" href="#433">433</a>             <span class="string">"   sb1.append(\&quot;Some string. At this point I'm not doing anything to count characters, assuming developer knows what they're doing\&quot;);"</span> + PMD.EOL +
+<a name="434" href="#434">434</a>             <span class="string">" }"</span> + PMD.EOL +
+<a name="435" href="#435">435</a>             <span class="string">"}"</span>;
+<a name="436" href="#436">436</a>     
+<a name="437" href="#437">437</a>     
+<a name="438" href="#438">438</a> }
+</pre>
+<hr/><div id="footer">This page was automatically generated by <a href="http://maven.apache.org/">Maven</a></div></body>
+</html>
+

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="blob">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/jython_Release_2_2alpha1/Lib/test/blob.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
