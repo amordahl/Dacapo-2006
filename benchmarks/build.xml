@@ -818,7 +818,7 @@
 	<!-- ================================= 
           target: bloat-jar              
          ================================= -->
-	<target name="bloat-jar" description="Build bloat" depends="harness">
+	<target name="bloat-jar" description="Build bloat" depends="harness, bloat">
 		<antcall target="dep.jar"><param name="bm" value="bloat" /></antcall>
 	</target>
 
