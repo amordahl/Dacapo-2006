@@ -398,7 +398,137 @@ Sometimes ant gives out this warnings, but the build is finished without any pro
   <!-- Generate the source code                                            -->
   <!-- =================================================================== -->
   <target name="codegen" depends="prepare" description="Generates the java files from the xml resources">
-    <echo message="Skipped codegen"/>
+    <!-- resetting codegen directory -->
+    <echo message="Resetting codegen directory"/>
+
+    <!-- copy codegen directory -->
+    <copy todir="${build.codegen}" filtering="yes">
+      <fileset dir="${src.codegen}"/>
+    </copy>
+
+    <!-- generate the java files from xml resources -->
+    <echo message="Generating the java files from xml resources"/>
+
+    <dependset>
+        <srcfilelist dir="./" files="${foproperties.xml},${colorkw.xml}"/>
+        <targetfilelist dir="./" files="${build.src}/org/apache/fop/fo/properties/Constants.java,${build.src}/fo_${ignore_this}"/>
+    </dependset>
+    <dependset>
+        <srcfilelist dir="./" files="${propinc.xsl}"/>
+        <targetfilelist dir="./" files="${build.src}/fo_${ignore_this},${build.src}/org/apache/fop/fo/properties/FOPropertyMapping.java,${build.src}/foenums_${ignore_this}"/>
+    </dependset>
+
+    <dependset>
+        <srcfilelist dir="./" files="${encodings.xml},${charlist.xsl},${fontfile.xsl},
+                                     ${Courier.xml},${Courier-Oblique.xml},${Courier-Bold.xml},
+                                     ${Courier-BoldOblique.xml},
+                                     ${Helvetica.xml},${Helvetica-Bold.xml},${Helvetica-Oblique.xml},
+                                     ${Helvetica-BoldOblique.xml},
+                                     ${Times-Roman.xml},${Times-Italic.xml},${Times-Bold.xml},
+                                     ${Times-BoldItalic.xml},
+                                     ${Symbol.xml},${ZapfDingbats.xml}"/>
+        <targetfilelist dir="./" files="${build.src}/org/apache/fop/render/pdf/fonts/Courier*,
+                                        ${build.src}/org/apache/fop/render/pdf/fonts/Times*,
+                                        ${build.src}/org/apache/fop/render/pdf/fonts/Helvetica*,
+                                        ${build.src}/org/apache/fop/render/pdf/fonts/Symbol*,
+                                        ${build.src}/org/apache/fop/render/pdf/fonts/ZapfDingbats*"/>
+    </dependset>
+
+    <style in="${allprops.xml}" style="${genconst.xsl}"
+           out="${build.src}/${properties.dir}/Constants.java"/>
+    <style in="${foproperties.xml}" style="${properties.xsl}"
+           out="${build.src}/fo_${ignore_this}">
+      <param name="reldir" expression="${properties.dir}"/>
+    </style>
+    <style in="${foproperties.xml}" style="${propmap.xsl}"
+           out="${build.src}/${properties.dir}/FOPropertyMapping.java"/>
+    <style in="${foproperties.xml}" style="${enumgen.xsl}"
+           out="${build.src}/foenums_${ignore_this}">
+      <param name="reldir" expression="${properties.dir}"/>
+    </style>
+    <style in="${extproperties.xml}" style="${propmap.xsl}"
+           out="${build.src}/${properties.dir}/ExtensionPropertyMapping.java"/>
+    <style in="${encodings.xml}" style="${charlist.xsl}"
+           out="${build.src}/org/apache/fop/render/pdf/CodePointMapping.java"/>
+
+    <style
+      in="${Courier.xml}" style="${fontfile.xsl}"
+      out="${build.src}/${fonts.dir}/Courier.java">
+      <param name="encoding" expression="${textfontencoding}"/>
+    </style>
+    <style
+      in="${Courier-Oblique.xml}" style="${fontfile.xsl}"
+      out="${build.src}/${fonts.dir}/CourierOblique.java">
+      <param name="encoding" expression="${textfontencoding}"/>
+    </style>
+    <style
+       in="${Courier-Bold.xml}" style="${fontfile.xsl}"
+       out="${build.src}/${fonts.dir}/CourierBold.java">
+      <param name="encoding" expression="${textfontencoding}"/>
+    </style>
+    <style
+       in="${Courier-BoldOblique.xml}" style="${fontfile.xsl}"
+       out="${build.src}/${fonts.dir}/CourierBoldOblique.java">
+      <param name="encoding" expression="${textfontencoding}"/>
+    </style>
+    <style
+       in="${Helvetica.xml}" style="${fontfile.xsl}"
+       out="${build.src}/${fonts.dir}/Helvetica.java">
+      <param name="encoding" expression="${textfontencoding}"/>
+    </style>
+    <style
+       in="${Helvetica-Bold.xml}" style="${fontfile.xsl}"
+       out="${build.src}/${fonts.dir}/HelveticaBold.java">
+      <param name="encoding" expression="${textfontencoding}"/>
+    </style>
+    <style
+       in="${Helvetica-Oblique.xml}" style="${fontfile.xsl}"
+       out="${build.src}/${fonts.dir}/HelveticaOblique.java">
+      <param name="encoding" expression="${textfontencoding}"/>
+    </style>
+    <style
+       in="${Helvetica-BoldOblique.xml}" style="${fontfile.xsl}"
+       out="${build.src}/${fonts.dir}/HelveticaBoldOblique.java">
+      <param name="encoding" expression="${textfontencoding}"/>
+    </style>
+    <style
+       in="${Times-Roman.xml}" style="${fontfile.xsl}"
+       out="${build.src}/${fonts.dir}/TimesRoman.java">
+      <param name="encoding" expression="${textfontencoding}"/>
+    </style>
+    <style
+       in="${Times-Italic.xml}" style="${fontfile.xsl}"
+       out="${build.src}/${fonts.dir}/TimesItalic.java">
+      <param name="encoding" expression="${textfontencoding}"/>
+    </style>
+    <style
+       in="${Times-Bold.xml}" style="${fontfile.xsl}"
+       out="${build.src}/${fonts.dir}/TimesBold.java">
+      <param name="encoding" expression="${textfontencoding}"/>
+    </style>
+    <style
+       in="${Times-BoldItalic.xml}" style="${fontfile.xsl}"
+       out="${build.src}/${fonts.dir}/TimesBoldItalic.java">
+      <param name="encoding" expression="${textfontencoding}"/>
+    </style>
+    <style
+       in="${Symbol.xml}" style="${fontfile.xsl}"
+       out="${build.src}/${fonts.dir}/Symbol.java"/>
+    <style
+       in="${ZapfDingbats.xml}" style="${fontfile.xsl}"
+       out="${build.src}/${fonts.dir}/ZapfDingbats.java"/>
+
+    <!-- custom fonts (Use t1fontfile.xsl instead of fontfile.xsl for Type 1 fonts!) step 2/2 -->
+    <!-- use this as a template for type 1 fonts: 
+    <xslt infile="${myfont.xml}" xsltfile="${t1fontfile.xsl}"
+        outfile="${build.src}/${fonts.dir}/myfont.java" smart="yes"/>
+    -->
+    <!-- use this as a template for truetype fonts 
+    <xslt infile="${myfont.xml}" xsltfile="${ttffontfile.xsl}" 
+        outfile="${build.src}/${fonts.dir}/myfont.java" smart="yes"/>
+    -->
+
+
   </target>
 
   <!-- =================================================================== -->
