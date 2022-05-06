@@ -51,7 +51,7 @@ Software Foundation, please see <http://www.apache.org/>.
 <xsl:stylesheet version="1.0"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:lxslt="http://xml.apache.org/xslt"
-                xmlns:redirect="org.apache.xalan.xslt.extensions.Redirect"
+                xmlns:redirect="http://xml.apache.org/xalan/redirect"
                 extension-element-prefixes="redirect">
 
 <xsl:include href="./propinc.xsl"/>
@@ -83,7 +83,7 @@ Software Foundation, please see <http://www.apache.org/>.
    </xsl:variable>
 
    <xsl:if test="$bEnum='true' or contains($bSubpropEnum, 'true')">
-      <redirect:write select="concat('./', $reldir, '/', $classname, '.java')">
+      <redirect:write select="concat('./', $reldir, '/', $classname, '.java')" file="/usr/share/ant/etc/junit-frames.xsl">
 package org.apache.fop.fo.properties;
 
 <!-- Handle enumeration values -->
