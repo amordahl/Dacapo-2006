@@ -43,7 +43,7 @@ SUBDIRS = util \
 all:
 	@for i in $(SUBDIRS) ""; do \
 	    if [ "x$$i" != "x" ]; then \
-		$(MAKE) -C $$i all; \
+		$(MAKE) -C $$i all || exit $?; \
 	    fi; \
 	done
 
