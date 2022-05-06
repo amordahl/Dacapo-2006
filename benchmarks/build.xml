@@ -804,7 +804,7 @@
         -->
 
 		<!-- Build bloat -->
-		<exec executable="${make}" dir="${bloat-top}/src/EDU/purdue/cs/bloat/"/>
+		<exec executable="${make}" dir="${bloat-top}/src/EDU/purdue/cs/bloat/" failonerror="true" />
 
 		<!-- Copy the class files into the build directory -->
 		<copy todir="${build}">
@@ -818,7 +818,7 @@
 	<!-- ================================= 
           target: bloat-jar              
          ================================= -->
-	<target name="bloat-jar" description="Build bloat" depends="harness, bloat">
+	<target name="bloat-jar" description="Build bloat" depends="harness">
 		<antcall target="dep.jar"><param name="bm" value="bloat" /></antcall>
 	</target>
 
@@ -1024,7 +1024,7 @@
            build.xml handles relative directories.  The classpath allows the patched
            sources to see the test harness code.
         -->
-		<exec executable="ant" dir="${fop-top}"/>
+		<exec executable="ant" dir="${fop-top}" failonerror="true"/>
 
 		<!-- Copy the build to the distribution directory -->
 		<unjar src="${fop-top}/build/fop.jar" dest="${build}"/>
@@ -1320,7 +1320,7 @@
         -->
 		
 		<!-- Build using Ant, setting the classpath appropriately -->
-		<exec dir="${pmd-top}/bin" executable="ant">
+		<exec dir="${pmd-top}/bin" executable="ant" failonerror="true">
 			<arg value="compile"/>
 			<env key="CLASSPATH" value=".:${build.src}/junit/junit${junit.version}/junit.jar"/>
 			<env key="ANT_HOME" value="${ant.install}"/>
