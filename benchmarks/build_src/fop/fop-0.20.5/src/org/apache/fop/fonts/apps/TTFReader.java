@@ -423,14 +423,14 @@ public class TTFReader {
         }
 
         // Get kerning
-        Iterator enum;
+        Iterator enum2;
         if (isCid)
-            enum = ttf.getKerning().keySet().iterator();
+            enum2 = ttf.getKerning().keySet().iterator();
         else
-            enum = ttf.getAnsiKerning().keySet().iterator();
+            enum2 = ttf.getAnsiKerning().keySet().iterator();
 
-        while (enum.hasNext()) {
-            Integer kpx1 = (Integer)enum.next();
+        while (enum2.hasNext()) {
+            Integer kpx1 = (Integer)enum2.next();
 
             el = doc.createElement("kerning");
             el.setAttribute("kpx1", kpx1.toString());
@@ -443,8 +443,8 @@ public class TTFReader {
             else
                 h2 = (HashMap)ttf.getAnsiKerning().get(kpx1);
 
-            for (Iterator enum2 = h2.keySet().iterator(); enum2.hasNext(); ) {
-                Integer kpx2 = (Integer)enum2.next();
+            for (Iterator enum22 = h2.keySet().iterator(); enum22.hasNext(); ) {
+                Integer kpx2 = (Integer)enum22.next();
                 if (isCid || kpx2.intValue() < 256) {
                     el2 = doc.createElement("pair");
                     el2.setAttribute("kpx2", kpx2.toString());

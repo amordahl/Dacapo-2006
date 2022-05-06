@@ -303,9 +303,9 @@ public class PSRenderer extends AbstractRenderer {
         // write("/gfF1{/Helvetica findfont} bd");
         // write("/gfF3{/Helvetica-Bold findfont} bd");
         Map fonts = fontInfo.getFonts();
-        Iterator enum = fonts.keySet().iterator();
-        while (enum.hasNext()) {
-            String key = (String)enum.next();
+        Iterator enum2 = fonts.keySet().iterator();
+        while (enum2.hasNext()) {
+            String key = (String)enum2.next();
             Font fm = (Font)fonts.get(key);
             write("/" + key + " /" + fm.fontName() + " def");
         }
@@ -314,9 +314,9 @@ public class PSRenderer extends AbstractRenderer {
         defineWinAnsiEncoding();
 
         //Rewrite font encodings
-        enum = fonts.keySet().iterator();
-        while (enum.hasNext()) {
-            String key = (String)enum.next();
+        enum2 = fonts.keySet().iterator();
+        while (enum2.hasNext()) {
+            String key = (String)enum2.next();
             Font fm = (Font)fonts.get(key);
             if (null == fm.encoding()) {
                 //ignore (ZapfDingbats and Symbol run through here

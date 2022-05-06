@@ -654,8 +654,8 @@ public class TernaryTree implements Cloneable, Serializable {
          * else
          * System.out.println("");
          * System.out.println("Keys:");
-         * for(Enumeration enum = keys(); enum.hasMoreElements(); )
-         * System.out.println(enum.nextElement());
+         * for(Enumeration enum2 = keys(); enum2.hasMoreElements(); )
+         * System.out.println(enum2.nextElement());
          */
 
     }
