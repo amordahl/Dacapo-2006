@@ -63,11 +63,11 @@ import java.net.*;
 
 
 /**
- * Klasse f�r UI-Kommandos. Die Kommandos k�nnen in das Men�system oder
- * in eine Toolbar eingef�gt werden.<br>
- * <code>Commands</code> unterst�tzen mehrsprachigkeit.<br>
- * Durch �berschreiben der Methode <code>doit<code> kann die Klasse customisiert werden.
- * �ber die Methode <code>undoit</code> kann Undo-Funktionalit�t unterst�tzt werden.<br>
+ * Klasse f?r UI-Kommandos. Die Kommandos k?nnen in das Men?system oder
+ * in eine Toolbar eingef?gt werden.<br>
+ * <code>Commands</code> unterst?tzen mehrsprachigkeit.<br>
+ * Durch ?berschreiben der Methode <code>doit<code> kann die Klasse customisiert werden.
+ * ?ber die Methode <code>undoit</code> kann Undo-Funktionalit?t unterst?tzt werden.<br>
  *
  * @author Juergen.Verwohlt@jcatalog.com
  * @version 1.0 18.03.99

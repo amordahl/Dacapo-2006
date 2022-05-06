@@ -55,7 +55,7 @@ import java.lang.Exception;
 /**
  * Die Klasse <code>MessageException</code> ist eine Exception, die
  * mit einer Meldung und deren Parametern versehen werden kann.
- * Dadurch kann die Meldung �ber den Exception-Mechanismus an die
+ * Dadurch kann die Meldung ?ber den Exception-Mechanismus an die
  * Aufrufer hochgereicht werden, bis schliesslich ein Aufrufer die
  * Meldung zur Anzeige bringt.
  *
@@ -66,13 +66,13 @@ import java.lang.Exception;
 public class MessageException extends Exception {
 
     /**
-     * Angabe der ausl�senden Exception, wie z.B. NullPointerException.
+     * Angabe der ausl?senden Exception, wie z.B. NullPointerException.
      * Dieses Feld ist optional.
      */
     protected Exception exception;
 
     /**
-     * ID der Meldung, die f�r diese Exception ausgegeben werden soll
+     * ID der Meldung, die f?r diese Exception ausgegeben werden soll
      */
     protected String messageId;
 

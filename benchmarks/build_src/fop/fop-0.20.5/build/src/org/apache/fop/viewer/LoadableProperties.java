@@ -58,10 +58,10 @@ import java.util.*;
 /**
  * Erweitert Hashtable um die Methode load.
  * Die Zeilen der Textdatei, die mit # oder ! anfangen sind Kommentarzeilen.
- * Eine g�ltige Zeile ist entweder eine Kommentarzeile oder eine Zeile mit dem
+ * Eine g?ltige Zeile ist entweder eine Kommentarzeile oder eine Zeile mit dem
  * Gleichheitszeichen "in der Mitte".
- * Die Klasse LoadableProperties l�sst im Gegensatz zu der Klasse Properties die
- * Schl�sselwerte mit Leerzeichen zu.
+ * Die Klasse LoadableProperties l?sst im Gegensatz zu der Klasse Properties die
+ * Schl?sselwerte mit Leerzeichen zu.
  *
  * @version 02.12.99
  * @author Stanislav.Gorkhover@jCatalog.com

@@ -120,7 +120,7 @@ TODO-List:
  * is the FlateEncode filter which is a Level 3 feature. The PostScript code
  * generated follows the Document Structuring Conventions (DSC) version 3.0.
  *
- * @author Jeremias M�rki
+ * @author Jeremias M?rki
  */
 public class PSRenderer extends AbstractRenderer {
 

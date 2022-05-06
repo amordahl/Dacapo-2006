@@ -52,7 +52,7 @@ package org.apache.fop.viewer;
 
 
 /**
- * Definition f�r die �bersetzer-Klassen.
+ * Definition f?r die ?bersetzer-Klassen.
  *
  * @version 03.12.99
  * @author Stanislav.Gorkhover@jCatalog.com
@@ -61,22 +61,22 @@ package org.apache.fop.viewer;
 public interface Translator {
 
     /**
-     * �bersetzt ein Wort.
+     * ?bersetzt ein Wort.
      */
     String getString(String key);
 
     /**
-     * Ein Translator soll die fehlenden keys hervorheben k�nnen.
+     * Ein Translator soll die fehlenden keys hervorheben k?nnen.
      */
     void setMissingEmphasized(boolean b);
 
     /**
-     * Gibt an ob die �bersetzungsquelle gefunden ist.
+     * Gibt an ob die ?bersetzungsquelle gefunden ist.
      */
     boolean isSourceFound();
 
     /**
-     * Gibt an ob ein Key in der �bersetzungsquelle vorhanden ist.
+     * Gibt an ob ein Key in der ?bersetzungsquelle vorhanden ist.
      */
     boolean contains(String key);
 }
