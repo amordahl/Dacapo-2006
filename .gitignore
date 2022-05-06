@@ -8,3 +8,4 @@ benchmarks/src/dacapo/parser/ParseException.java
 benchmarks/src/dacapo/parser/SimpleCharStream.java
 benchmarks/src/dacapo/parser/Token.java
 benchmarks/src/dacapo/parser/TokenMgrError.java
+benchmarks/build_src/fop/fop-0.20.5/build/*
